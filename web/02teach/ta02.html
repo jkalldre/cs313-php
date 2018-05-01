@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>02Teach</title>
+    <link rel="stylesheet" href="ta02.css">
+    <script src="ta02.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+    $(document).ready(function(){
+        $("#change").click(function(){
+            $("#d1").css("background-color",$('#clrBox').val());
+            style.backgroundColor = document.getElementById('clrBox').value;
+        });
+        $("#hide").click(function(){
+            $("#d3").toggle("slow");
+            style.backgroundColor = document.getElementById('clrBox').value;
+        });
+    });
+</script>
+
+    <div class="c1" id="d1">DIV1</div>
+    <div class="c2">DIV2</div>
+    <div class="c3" id="d3">DIV3</div>
+    <button type="button" onclick="alert1()">Click Me!</button>
+  <!-- </br> -->
+    <button id="change" type="button" onclick="">Change color</button>
+    <input id="clrBox" placeholder="color"></input>
+  </br>
+    <button type="button" id="hide">Hide D3</button>
+  </body>
+</html>

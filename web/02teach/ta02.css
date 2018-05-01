@@ -1,0 +1,19 @@
+.c1 {
+  background-color: red
+}
+
+.c2 {
+  background-color: lightblue
+}
+
+.c3 {
+  background-color: lightgreen
+}
+
+div:hover {
+  font-weight: bold
+}
+
+div {
+  font-size: 50px
+}
