@@ -15,7 +15,7 @@
         <li class="nav"><?php echo date("h:i:sa") ?></li>
     </ul>
     </div>
-    <?php echo "Hello, World!" ?>
+    <?php echo "Hello, World!"; ?>
     <image class="img" src="img/me.jpg"/>
     <div class="bio">
     <p class="bio"> Hello, my name is Jacob Alldredge! I am a senior studying
