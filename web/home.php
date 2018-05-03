@@ -1,4 +1,4 @@
-<!doctype php>
+<!doctype html>
 <html>
   <head>
     <title>Home</title>
@@ -9,7 +9,7 @@
   <body>
     <div class="nav">
       <ul class="nav">
-        <li class="active_a"><a href="home.html">Home</a></li>
+        <li class="active_a"><a href="">Home</a></li>
         <li class="nav"><a href="home_assigns.html">Assignments</a></li>
         <li class="nav"><a href="https://www.w3schools.com/">W3Schools</a></li>
         <li class="nav"><a href="https://byui.brightspace.com/d2l/home/414715">Class Home</a></li>
@@ -23,7 +23,7 @@
 
       function timestamp() {
         $.ajax({
-          url: 'http://localhost/timestamp.php',
+          url: 'php/timestamp.php',
           success: function(data) {
               $('#timestamp').html(data);
             },
