@@ -12,11 +12,13 @@ html {
 body {
   background: lightgray;
   margin: 20px 100px;
+  width:150%;
+  overflow: scroll;
 }
 
 div.nav {
   background-color: var(--clr4);
-  width: 100vw-20px;
+  width: 980px;
   height:56px
 }
 
