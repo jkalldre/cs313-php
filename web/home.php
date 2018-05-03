@@ -12,10 +12,9 @@
         <li class="nav"><a href="home_assigns.html">Assignments</a></li>
         <li class="nav"><a href="https://www.w3schools.com/">W3Schools</a></li>
         <li class="nav"><a href="https://byui.brightspace.com/d2l/home/414715">Class Home</a></li>
-        <li class="nav"><?php echo date("h:i:sa") ?></li>
+        <li class="nav"><a><?php echo date("h:i:sa") ?></a></li>
     </ul>
     </div>
-    <?php echo "Hello, World!"; ?>
     <image class="img" src="img/me.jpg"/>
     <div class="bio">
     <p class="bio"> Hello, my name is Jacob Alldredge! I am a senior studying
