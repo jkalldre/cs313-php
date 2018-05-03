@@ -9,11 +9,11 @@
   <body>
     <div class="nav">
       <ul class="nav">
-        <li class="active_a"><a href="">Home</a></li>
-        <li class="nav"><a href="home_assigns.php">Assignments</a></li>
-        <li class="nav"><a href="https://www.w3schools.com/">W3Schools</a></li>
-        <li class="nav"><a href="https://byui.brightspace.com/d2l/home/414715">Class Home</a></li>
-        <li class="nav"><a id='timestamp'></a></li>
+        <li class="active_a"><a class="nav" href="">Home</a></li>
+        <li class="nav"><a class="nav" href="home_assigns.php">Assignments</a></li>
+        <li class="nav"><a class="nav" href="https://www.w3schools.com/">W3Schools</a></li>
+        <li class="nav"><a class="nav" href="https://byui.brightspace.com/d2l/home/414715">Class Home</a></li>
+        <li class="nav"><a class="nav" id='timestamp'></a></li>
     </ul>
     </div>
     <script>

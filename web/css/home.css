@@ -3,65 +3,62 @@
   --clr2: #1E392A;
   --clr3: #E9C893;
   --clr4: #828081;
-}
+  --creme: #fffdf0;}
 
-html {
-  overflow: auto;
-}
+html {overflow: auto;}
 
 body {
   background: lightgray;
   margin: 20px 100px;
   width:150%;
-  overflow: auto;
-}
+  overflow: auto;}
 
 div.nav {
   background-color: var(--clr4);
   width: 980px;
-  height:56px
-}
+  height:56px}
 
 ul.nav {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-}
+  padding: 0;}
 
 li.nav {
   float:left;
-  background-color: var(--clr4);
-
-}
+  background-color: var(--clr4);}
 
 .active_a {
   background-color: var(--clr1);
-  float:left;
-}
+  float:left;}
 
-a {
+a.nav {
   display:block;
   color:white;
   text-align: center;
   padding: 10px 15px 10px 15px;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 30px;}
+
+a:hover {background-color: var(--clr1);}
+a:visited {color:blue;}
+a.nav:visited {color:white;}
+li {list-style-type: none;}
+th, td {padding: 0 15px;}
+tr:nth-child(even) {background: var(--clr3);}
+tr:nth-child(odd) {background: var(--creme);}
+
+.tbl {
+  font-size: 50px;
+  margin: 20px 0 0 180px;
 }
 
-a:hover {
-  background-color: var(--clr1);
-}
 
 .clrs {
   padding: 14px 30px;
   text-align: center;
   float:left;
-  width:40px
-}
+  width:40px}
 
-li {
-  list-style-type: none;
-}
 
 .scheme {
   color:white;
@@ -72,46 +69,34 @@ li {
   margin-top:5px;
   padding:0;
   position: fixed;
-  bottom:5px;
-}
+  bottom:5px;}
 
 .img {
   height:650px;
   float:left;
-  margin: 20px 0 0 0;
+  margin: 20px 0 0 0;}
 
+th {
+  background: var(--clr1);
+  color:white;}
 
-}
 
 div.bio {
   background-color: var(--clr3);
   margin: 20px 0 0 10px;
   float:left;
   display:block
-  width:50px;
-}
+  width:50px;}
 
 p.bio {
   margin: 10px;
   padding: 0 0 0 0;
   background-color: white;
   font-size:30px;
-  width:600px
-}
+  width:600px}
 
-#c1 {
-  background-color:var(--clr1);
-}
-
-#c2 {
-  background-color: var(--clr2);
-}
-
-#c3 {
-  background-color: var(--clr3);
-}
-
-#c4 {
-  background-color: var(--clr4);
-}
+#c1 {background-color: var(--clr1);}
+#c2 {background-color: var(--clr2);}
+#c3 {background-color: var(--clr3);}
+#c4 {background-color: var(--clr4);}
 /* Color */
