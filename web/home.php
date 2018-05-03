@@ -13,7 +13,6 @@
         <li class="nav"><a href="https://www.w3schools.com/">W3Schools</a></li>
         <li class="nav"><a href="https://byui.brightspace.com/d2l/home/414715">Class Home</a></li>
         <li class="nav"><?php echo date("h:i:sa") ?></li>
-
     </ul>
     </div>
     <?php echo "Hello, World!" ?>
@@ -32,7 +31,7 @@
     fluent in Portuguese. I absolutely fell in love with the food, culture, music,
     and the people. I would give just about anything to spend another sunny day in that
     costal city.</p>
-    <div>
+  </div>
 
 
     <ul class="scheme">
