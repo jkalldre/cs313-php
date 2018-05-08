@@ -12,7 +12,7 @@
 // define variables and set to empty values
 $nameErr = $emailErr = $majorErr = "";
 $name = $email = $major = $comment = $continent = $sCon = "" ;
-$continents = array("NA" => "North Amercian", "SA" => "South America",
+$continents = array("NA" => "North America", "SA" => "South America",
                     "EU" => "Europe", "AS" =>  "Asia", "AU" => "Australia",
                     "AF" => "Africa", "AN" => "Antarctica");
 $majors = array("CS" => "Computer Science", "CE" => "Computer Engineering",
