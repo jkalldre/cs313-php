@@ -35,8 +35,8 @@
       </tr>
       <tr>
         <td>03</td>
-        <td><a href=""></a>N/A</td>
         <td>N/A</td>
+        <td><a href="ta03.php">ta03.php</a></td>
       </tr>
     </table>
   </div>
