@@ -10,3 +10,7 @@ function timestamp() {
       },
     });
   }
+
+  function myFunction() {
+      document.getElementById("myDropdown1").classList.toggle("show");
+  }
