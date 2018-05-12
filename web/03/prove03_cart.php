@@ -50,7 +50,7 @@ session_start();
     echo "<tr><td>Total</td><td>". number_format($_SESSION['sum'],2,'.',',')."</td></tr>";
     echo "</table>";
 ?>
-<a class='out' href="../index.php">Return to Browsing</a>
+<a class='out' href="../shopping_cart.php">Return to Browsing</a>
 <a class='out' href='prove03_checkout.php'/>Checkout</a>
 </form>
   </body>
