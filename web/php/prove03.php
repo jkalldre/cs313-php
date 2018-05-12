@@ -1,0 +1,3 @@
+function increase() {
+  echo "hello";
+}
