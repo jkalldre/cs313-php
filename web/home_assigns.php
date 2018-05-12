@@ -35,7 +35,7 @@
       </tr>
       <tr>
         <td>03</td>
-        <td>N/A</td>
+        <td><a href="shopping_cart.php">prove03.php</a></td>
         <td><a href="ta03.php">ta03.php</a></td>
       </tr>
     </table>
