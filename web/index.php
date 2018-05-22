@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include_once('./php/dbconnect.php');
+  // include_once('./php/dbconnect.php');
   $pwd = 'supergoodpassword';
   function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -8,7 +8,9 @@
   // alert("wrong answer");
   if(isset($_POST['login'])){
     // alert($_POST['usrpwd'] == $pwd);
+    alert($_POST['usrpwd']);
     $pwquery = $db->query("SELECT password from public.user WHERE username={$_POST['usrname']}");
+    $pwquery->execute();
     alert($pwquery);
   }
   ?>
