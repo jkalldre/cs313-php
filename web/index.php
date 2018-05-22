@@ -1,6 +1,6 @@
 <?php
   session_start();
-  // include_once('./php/dbconnect.php');
+  include_once('./php/dbconnect.php');
   $pwd = 'supergoodpassword';
   function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
