@@ -1,0 +1,75 @@
+:root {
+  --blue1: #005B9A;
+  --blue2: #0191C8;
+  --blue3: #74C2E1;
+  --gray1: #8C8984;
+  --gray2: lightgray;
+  --creme: #fffdf0;}
+
+/* Tags */
+body {
+  background-color: var(--blue1);
+}
+
+form {
+  border: 3px solid var(--gray2);
+  back
+}
+
+button {
+  border:none;
+}
+
+button:hover {
+  opacity: .8;
+}
+/* Classes */
+.column {
+  float:left;
+  padding:10px;
+}
+
+.left {
+  wid   th:50%;
+}
+
+.right {
+  width:50%;
+}
+
+.imgsignin {
+  text-align: center;
+  margin:0;
+  padding: 10px 0 0 0;
+  background-color: white;
+}
+
+.header {
+  font-size: 32px;
+  font-weight: bold;
+  background-color: var(--blue3);
+  text-align: center;
+  margin: 0 0 5px 0;
+  width: 100%;
+
+}
+
+.signin {
+  padding: 20px;
+  background-color: white;
+}
+
+input.signin {
+  width:100%;
+  padding: 10px 15px;
+  background-color: white;
+  margin: 5px;
+}
+
+.loginbtn {
+  background-color: lightgreen;
+  width: 100%;
+  padding:10px;
+  margin:10px 0 0 0;
+}
+/* IDs */
