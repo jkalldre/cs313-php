@@ -18,6 +18,6 @@
     die();
   }
 
-  header('Location: '.URL.'index.php');
+  header('Location: https://ancient-scrubland-36003.herokuapp.com/index.php');
    exit();
 ?>
