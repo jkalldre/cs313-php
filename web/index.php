@@ -36,7 +36,7 @@ if(isset($_POST['login'])){
     $dbq = "SELECT password from public.user WHERE username=\'{$_POST['usrname']}\';";
     alert($dbq);
     alert("sample");
-    $pwquery = $db->query("SELECT password from public.user WHERE username='{$_POST['usrname']}';");
+    $pwquery = $db->query($dbq);
     alert("Executing");
     $pwquery->execute();
     alert("Executed");
