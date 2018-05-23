@@ -10,7 +10,7 @@
   if(isset($_POST['login'])){
     // alert($_POST['usrpwd'] == $pwd);
     // alert($_POST['usrpwd']);
-    $pwquery = $db->query("SELECT password from public.user WHERE username='.{$_POST['usrname']}.'");
+    $pwquery = $db->query("SELECT password from public.user WHERE username={$_POST['usrname']};");
     $pwquery->execute();
     alert($pwquery);
   }
