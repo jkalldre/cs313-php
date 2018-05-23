@@ -1,6 +1,7 @@
 <?php
   session_start();
-  include('./php/dbconnect.php');
+  $debug = false;
+  if($debug)include('./php/dbconnect.php');
   alert("made it past dbconnect!");
   $pwd = 'supergoodpassword';
   function alert($msg) {
@@ -10,9 +11,9 @@
   if(isset($_POST['login'])){
     // alert($_POST['usrpwd'] == $pwd);
     // alert($_POST['usrpwd']);
-    $pwquery = $db->query("SELECT password from public.user WHERE username='{$_POST['usrname']}';");
+    if($debug){$pwquery = $db->query("SELECT password from public.user WHERE username='{$_POST['usrname']}';");
     $pwquery->execute();
-    alert($pwquery);
+    alert($pwquery);}
   }
   ?>
 <!-- <!doctype html> -->
