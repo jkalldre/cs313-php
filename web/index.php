@@ -1,6 +1,6 @@
 <?php
 session_start();
-$dbtest = false;
+$dbtest = true;
 if($dbtest /*&& !isset($_POST['login'])*/) {
   $dbUrl = getenv('DATABASE_URL');
   $dbopts = parse_url($dbUrl);
