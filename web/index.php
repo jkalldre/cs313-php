@@ -41,11 +41,10 @@ if(isset($_POST['login'])){
     alert("Executed q2");
 
     if($pw2[0] == $pw1[0]){
-      alert("Verified User");
       header("Location: https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php");
       die();
     }
-    else alert("Invalid Username or Password");
+    else $error = "Invalid Username or Password";
   }
 }
 
@@ -76,6 +75,7 @@ function alert($msg) {
       <lable for="usrpwd"><b>Password:</b></lable>
       <input class="signin" type="password" placeholder="Enter Password" name="usrpwd" required>
 
+      <lable for="login"><span style="color:red"><?php echo $error?></span></lable>
       <button class="loginbtn" type="submit" name="login">Login</button>
     </div>
   </form>
