@@ -34,14 +34,17 @@ if(isset($_POST['login'])){
   alert("Running Query");
   if($dbtest){
     $dbq1 = "SELECT password FROM public.user WHERE username=?";
-    $dbq2 = "SELECT crypt(?,?)"
+    $dbq2 = "SELECT crypt(?,?)";
     $pwquery1 = $db->prepare($dbq1);
     $pwquery1->execute([$_POST['usrname']]);
     $pw1 = $pwquery1->fetch();
     alert("Executed q1");
     $pwquery2 = $db->prepare($dbq2);
+    alert($pw1[0]);
     $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
     $pw2 = $pwquery2->fetch();
+    alert("Executed q2");
+
     // alert("QUERYSTR: ".$dbq1);
     // alert("Executing");
     if($pw2 == $pw1) alert("Verified User");
