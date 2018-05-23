@@ -24,8 +24,8 @@ if($dbtest) {
 // include('./php/dbconnect.php');
 $pwd = 'supergoodpassword';
 if(isset($_POST['login'])){
-  if(!isset($_SESSION['db'])) alert("DB IS NOT SET");
-  else alert("db is set");
+  // if(!isset($_SESSION['db'])) alert("DB IS NOT SET");
+  // else alert("db is set");
   if($dbtest){
     $dbq1 = "SELECT password FROM public.user WHERE username=?";
     $dbq2 = "SELECT crypt(?,?)";
@@ -33,12 +33,12 @@ if(isset($_POST['login'])){
     $pwquery1 = $_SESSION['db']->prepare($dbq1);
     $pwquery1->execute([$_POST['usrname']]);
     $pw1 = $pwquery1->fetch();
-    alert("Executed q1");
+    // alert("Executed q1");
 
     $pwquery2 = $_SESSION['db']->prepare($dbq2);
     $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
     $pw2 = $pwquery2->fetch();
-    alert("Executed q2");
+    // alert("Executed q2");
 
     if($pw2[0] == $pw1[0]){
       header("Location: https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php");
