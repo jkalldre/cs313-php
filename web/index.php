@@ -34,11 +34,10 @@ if(isset($_POST['login'])){
   alert("Running Query");
   if($dbtest){
     $dbq = "SELECT password FROM public.user WHERE username=?";
-    echo "<h1>" . $dbq . "</h1>";
     alert($dbq);
     $pwquery = $db->prepare($dbq);
     alert("Executing");
-    $pwquery->execute([$_POST['usrname']]);
+    $pwquery->execute($_POST['usrname']);
     alert("Executed");
     $pw = $pwquery->fetchAll(PDO::FETCH_ASSOC);
     alert($pw[0]);
