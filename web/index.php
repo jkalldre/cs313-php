@@ -26,7 +26,6 @@ $pwd = 'supergoodpassword';
 if(isset($_POST['login'])){
   if(!isset($_SESSION['db'])) alert("DB IS NOT SET");
   else alert("db is set");
-  alert("Running Query");
   if($dbtest){
     $dbq1 = "SELECT password FROM public.user WHERE username=?";
     $dbq2 = "SELECT crypt(?,?)";
@@ -37,14 +36,14 @@ if(isset($_POST['login'])){
     alert("Executed q1");
 
     $pwquery2 = $_SESSION['db']->prepare($dbq2);
-    alert($pw1[0]);
     $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
     $pw2 = $pwquery2->fetch();
     alert("Executed q2");
 
     if($pw2[0] == $pw1[0]){
       alert("Verified User");
-
+      header("Location: https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php");
+      die();
     }
     else alert("Invalid Username or Password");
   }
@@ -57,7 +56,7 @@ function alert($msg) {
 <!-- <!doctype html> -->
 <html>
 <head>
-  <title>Task Manager</title>
+  <title>Login</title>
   <link rel="stylesheet" href="css/project.css">
   <script src="js/project.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
