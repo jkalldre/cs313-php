@@ -32,13 +32,13 @@
     // alert($_POST['usrpwd'] == $pwd);
     // alert($_POST['usrpwd']);
     alert("Running Query");
-    if($dbtest && isset($_POST['login'])){
-      $query = "SELECT password from public.user WHERE username='{$_POST['usrname']}';"
-      alert($query);
+    if($dbtest){
+      $dbquery = "SELECT password from public.user WHERE username='{$_POST['usrname']}';"
+      alert($dbquery);
       $pwquery = $db->query("SELECT password from public.user WHERE username='{$_POST['usrname']}';");
     alert("Executing");
     $pwquery->execute();
-    alert("Executed"); 
+    alert("Executed");
     alert($pwquery);}
   }
   ?>
