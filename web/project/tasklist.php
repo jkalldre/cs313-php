@@ -28,7 +28,7 @@ if($dbtest){
 
   $pwquery1 = $_SESSION['db']->prepare($dbq1);
   $pwquery1->execute([$user]);
-  $pw1 = $pwquery1->fetch();
+  $pw1 = $pwquery1->fetch()['title'];
   alert("Executed q1");
 
 }
