@@ -2,7 +2,7 @@
 session_start();
 $user = $_GET['user'];
 
-$dbtest = false;
+$dbtest = true;
 if($dbtest) {
   $dbUrl = getenv('DATABASE_URL');
   $dbopts = parse_url($dbUrl);
