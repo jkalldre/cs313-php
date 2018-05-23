@@ -1,8 +1,7 @@
 <?php
   session_start();
   $dbtest = true;
-  $synced = false;
-  if($dbtest && $synced == false){
+  if($dbtest && !isset($_POST['login'])) {
     $dbUrl = getenv('DATABASE_URL');
     $dbopts = parse_url($dbUrl);
     $dbHost = $dbopts["host"];
