@@ -1,5 +1,5 @@
 <?php
-  $dbUrl = getenv('DATABASE_URL');
+  $dbUrl = getenv('https://ancient-scrubland-36003.herokuapp.com/');
   $dbopts = parse_url($dbUrl);
   $dbHost = $dbopts["host"];
   $dbPort = $dbopts["port"];
