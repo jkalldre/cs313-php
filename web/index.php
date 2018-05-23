@@ -41,9 +41,7 @@ if(isset($_POST['login'])){
     alert("Executed");
     $pw = $pwquery->fetch();
     echo "<ul>";
-    foreach($pw as $item){
-      echo "<li>" . $item . "</li>";
-    }
+      echo "<li>" . $pw[0]. "</li>";
     // alert($pw);
     echo "</ul>";
   }
