@@ -47,7 +47,7 @@ if(isset($_POST['login'])){
 
     // alert("QUERYSTR: ".$dbq1);
     // alert("Executing");
-    if($pw2 == $pw1) alert("Verified User");
+    if($pw2[0] == $pw1[0]) alert("Verified User");
     else alert("Invalid Username or Password");
   }
 }
