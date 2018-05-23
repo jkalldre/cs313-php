@@ -17,7 +17,5 @@
     echo 'Error!: ' . $ex->getMessage();
     die();
   }
-
-  header('Location: https://ancient-scrubland-36003.herokuapp.com/index.php');
-   exit();
+  return;
 ?>
