@@ -16,6 +16,6 @@
     die();
   }
 
-  header("Location: ../index.php"); /* Redirect browser */
-exit();
+  $url='../index.php';
+   echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 ?>
