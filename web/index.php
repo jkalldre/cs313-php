@@ -9,10 +9,10 @@ if($dbtest && !isset($_POST['login'])) {
   $dbUser = $dbopts["user"];
   $dbPassword = $dbopts["pass"];
   $dbName = ltrim($dbopts["path"],'/');
-  alert("Synced");
   try
   {
     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    if(isset($db))alert("DB Synced");
   }
   catch (PDOException $ex)
   {
