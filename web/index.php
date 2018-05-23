@@ -9,7 +9,7 @@
     $dbUser = $dbopts["user"];
     $dbPassword = $dbopts["pass"];
     $dbName = ltrim($dbopts["path"],'/');
-    $synced = true;
+    alert("Synced");
     try
     {
       $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
@@ -20,8 +20,8 @@
       die();
     }
   }
-  // include('./php/dbconnect.php');
   alert("made it past dbconnect!");
+  // include('./php/dbconnect.php');
   $pwd = 'supergoodpassword';
   function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -30,8 +30,11 @@
   if(isset($_POST['login'])){
     // alert($_POST['usrpwd'] == $pwd);
     // alert($_POST['usrpwd']);
+    alert("Running Query");
     if($dbtest){$pwquery = $db->query("SELECT password from public.user WHERE username='{$_POST['usrname']}';");
+    alert("Executing");
     $pwquery->execute();
+    alert("Executed");
     alert($pwquery);}
   }
   ?>
