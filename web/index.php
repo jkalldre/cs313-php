@@ -1,5 +1,6 @@
 <?php
   session_start();
+  define('URL', 'https://ancient-scrubland-36003.herokuapp.com/');
   include_once('./php/dbconnect.php');
   $pwd = 'supergoodpassword';
   function alert($msg) {

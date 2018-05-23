@@ -1,4 +1,6 @@
 <?php
+  session_start();
+
   $dbUrl = getenv('DATABASE_URL');
   $dbopts = parse_url($dbUrl);
   $dbHost = $dbopts["host"];
@@ -16,7 +18,6 @@
     die();
   }
 
-  $url='../index.php';
-   echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+  header('Location: '.URL.'index.php');
    exit();
 ?>
