@@ -41,7 +41,7 @@ if(isset($_POST['login'])){
     $pwquery->execute([$_POST['usrname']]);
     alert("Executed");
     $pw = $pwquery->fetchAll(PDO::FETCH_ASSOC);
-    alert($pw);
+    alert($pw[0]);
   }
 }
 ?>
