@@ -1,6 +1,6 @@
 <?php
 session_start();
-$dbtest = true;
+$dbtest = false;
 if($dbtest /*&& !isset($_POST['login'])*/) {
   $dbUrl = getenv('DATABASE_URL');
   $dbopts = parse_url($dbUrl);
@@ -39,7 +39,7 @@ if(isset($_POST['login'])){
     alert("Executing");
     $pwquery->execute([$_POST['usrname']]);
     alert("Executed");
-    $pw = $pwquery->fetch());
+    $pw = $pwquery->fetch();
     alert($pw);
   }
 }
