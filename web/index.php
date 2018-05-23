@@ -40,10 +40,8 @@ if(isset($_POST['login'])){
     $pwquery->execute([$_POST['usrname']]);
     alert("Executed");
     $pw = $pwquery->fetch();
-    echo "<ul>";
-      echo "<li>" . $pw[0]. "</li>";
-    // alert($pw);
-    echo "</ul>";
+    if($_POST['usrpwd'] == $pw) alert("Verified User");
+    else alert("Invalid Username or Password");
   }
 }
 ?>
