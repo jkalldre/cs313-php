@@ -84,7 +84,8 @@ VALUES (
 , (SELECT category_id FROM public.category WHERE title = 'Family')
 , 'Pet Archie the cat.');
 
-SELECT crypt('supergoodpassword',(select password from public.user where username='stewart'));--
+SELECT crypt('supergoodpassword',(select password from public.user where username='stewart'));
+--
 SELECT password FROM public.user where username ='stewart';
 -- https://www.meetspaceapp.com/2016/04/12/passwords-postgresql-pgcrypto.html
 -- SELECT * FROM public.task WHERE category_id =
