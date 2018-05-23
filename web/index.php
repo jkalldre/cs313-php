@@ -40,7 +40,7 @@ if(isset($_POST['login'])){
     $pwquery->execute();
     alert("Executed");
     $pw = $pwquery->fetchAll(PDO::FETCH_ASSOC);
-    alert($pw[0]);
+    alert($pw[0][0]);
   }
 }
 ?>
