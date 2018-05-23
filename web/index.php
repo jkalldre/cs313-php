@@ -1,7 +1,8 @@
 <?php
   session_start();
   $dbtest = true;
-  if($dbtest){
+  $synced = false;
+  if($dbtest && $synced == false){
     $dbUrl = getenv('DATABASE_URL');
     $dbopts = parse_url($dbUrl);
     $dbHost = $dbopts["host"];
@@ -9,6 +10,7 @@
     $dbUser = $dbopts["user"];
     $dbPassword = $dbopts["pass"];
     $dbName = ltrim($dbopts["path"],'/');
+    $synced = true;
     try
     {
       $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
