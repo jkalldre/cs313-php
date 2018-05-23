@@ -2,7 +2,7 @@
 session_start();
 $user = $_GET['user'];
 
-$dbtest = true;
+$dbtest = false;
 if($dbtest) {
   $dbUrl = getenv('DATABASE_URL');
   $dbopts = parse_url($dbUrl);
@@ -61,7 +61,7 @@ function alert($msg) {
       <h2>Column 2</h2>
       <?php
       foreach($pw1 as $task){
-        echo "<div class='task'>$task['title']</div>";
+        echo "<div class='task'>{$task['title']}</div>";
       }
       ?>
       <div class="task">stuff</div>
