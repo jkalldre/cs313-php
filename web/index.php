@@ -40,7 +40,12 @@ if(isset($_POST['login'])){
     $pwquery->execute([$_POST['usrname']]);
     alert("Executed");
     $pw = $pwquery->fetch();
-    alert($pw);
+    echo "<ul>";
+    foreach($pw as $item){
+      echo "<li>" . $item . "</li>";
+    }
+    // alert($pw);
+    echo "</ul>";
   }
 }
 ?>
