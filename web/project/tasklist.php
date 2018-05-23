@@ -20,7 +20,7 @@
           <li>stuff</li>
           <li>stuff</li>
           <li>stuff</li>
-          <li><?php echo $_SESSION['user'];?></li>
+          <li><?php echo $_GET['user'];?></li>
         </ul>
       </div>
       <div class="column right">
