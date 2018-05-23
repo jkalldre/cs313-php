@@ -1,5 +1,6 @@
 <?php
   session_start();
+  // unset($_POST['login']);
   $dbtest = true;
   if($dbtest && !isset($_POST['login'])) {
     $dbUrl = getenv('DATABASE_URL');
@@ -31,7 +32,8 @@
     // alert($_POST['usrpwd'] == $pwd);
     // alert($_POST['usrpwd']);
     alert("Running Query");
-    if($dbtest){$pwquery = $db->query("SELECT password from public.user WHERE username='{$_POST['usrname']}';");
+    if($dbtest && isset($_POST['login'])){
+      $pwquery = $db->query("SELECT password from public.user WHERE username='{$_POST['usrname']}';");
     alert("Executing");
     $pwquery->execute();
     alert("Executed");
