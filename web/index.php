@@ -31,11 +31,11 @@ if(isset($_POST['login'])){
   // alert($_POST['usrpwd']);
   alert("Running Query");
   if($dbtest){
-    $dbq = "SELECT password FROM public.user WHERE username=\'{$_POST['usrname']}\';";
+    $dbq = "SELECT password FROM public.user WHERE username=?;";
     alert($dbq);
-    $pwquery = $db->query($dbq);
+    $pwquery = $db->prepare($dbq);
     alert("Executing");
-    $pwquery->execute();
+    $pwquery->execute([$_POST['usrname']]);
     alert("Executed");
     $pw = $pwquery->fetchAll(PDO::FETCH_ASSOC);
     alert($pw);
