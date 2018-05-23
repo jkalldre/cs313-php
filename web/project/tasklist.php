@@ -2,7 +2,7 @@
 session_start();
 $user = $_GET['user'];
 
-$dbtest = true;
+$dbtest = false;
 if($dbtest) {
   $dbUrl = getenv('DATABASE_URL');
   $dbopts = parse_url($dbUrl);
@@ -21,8 +21,8 @@ if($dbtest) {
     die();
   }
 }
-if(!isset($_SESSION['db'])) alert("DB IS NOT SET");
-else alert("db is set");
+// if(!isset($_SESSION['db'])) alert("DB IS NOT SET");
+// else alert("db is set");
 if($dbtest){
   $dbq1 = "SELECT title FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
   alert($dbq1);
@@ -30,8 +30,8 @@ if($dbtest){
   alert($user);
   $pwquery1->execute([$user]);
   $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
-  print_r($pw1);
-  alert("Executed q1");
+  // print_r($pw1);
+  // alert("Executed q1");
 
 }
 
