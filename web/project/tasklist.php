@@ -25,9 +25,9 @@ if($dbtest) {
 // else alert("db is set");
 if($dbtest){
   $dbq1 = "SELECT title FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
-  alert($dbq1);
+  // alert($dbq1);
   $pwquery1 = $_SESSION['db']->prepare($dbq1);
-  alert($user);
+  // alert($user);
   $pwquery1->execute([$user]);
   $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
   // print_r($pw1);
