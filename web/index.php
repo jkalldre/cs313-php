@@ -33,7 +33,7 @@ if(isset($_POST['login'])){
   else alert("db is set");
   alert("Running Query");
   if($dbtest){
-    $dbq = "SELECT password FROM public.user WHERE username=". $_POST['usrname']. ";";
+    $dbq = "SELECT password FROM public.user WHERE username='". $_POST['usrname']. "';";
     alert($dbq);
     $pwquery = $db->query($dbq);
     alert("Executing");
