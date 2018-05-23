@@ -1,5 +1,5 @@
 <?php
-  $dbUrl = getenv('https://ancient-scrubland-36003.herokuapp.com/');
+  $dbUrl = getenv('DATABASE_URL');
   $dbopts = parse_url($dbUrl);
   $dbHost = $dbopts["host"];
   $dbPort = $dbopts["port"];
@@ -15,4 +15,7 @@
     echo 'Error!: ' . $ex->getMessage();
     die();
   }
+
+  header("Location: ../index.php"); /* Redirect browser */
+exit();
 ?>
