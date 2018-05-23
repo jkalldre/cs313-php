@@ -32,7 +32,7 @@ if(isset($_POST['login'])){
   // alert($_POST['usrpwd']);
   alert("Running Query");
   if($dbtest){
-    $dbq = "SELECT password FROM public.user WHERE username='?'";
+    $dbq = "SELECT password FROM public.user WHERE username='?';";
     alert($dbq);
     $pwquery = $db->prepare($dbq);
     alert("Executing");
