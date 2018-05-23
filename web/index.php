@@ -1,7 +1,25 @@
 <?php
   session_start();
-  $debug = false;
-  if($debug)include('./php/dbconnect.php');
+  $dbtest = true;
+  if($dbtest){
+    $dbUrl = getenv('DATABASE_URL');
+    $dbopts = parse_url($dbUrl);
+    $dbHost = $dbopts["host"];
+    $dbPort = $dbopts["port"];
+    $dbUser = $dbopts["user"];
+    $dbPassword = $dbopts["pass"];
+    $dbName = ltrim($dbopts["path"],'/');
+    try
+    {
+      $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    }
+    catch (PDOException $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+  }
+  // include('./php/dbconnect.php');
   alert("made it past dbconnect!");
   $pwd = 'supergoodpassword';
   function alert($msg) {
@@ -11,7 +29,7 @@
   if(isset($_POST['login'])){
     // alert($_POST['usrpwd'] == $pwd);
     // alert($_POST['usrpwd']);
-    if($debug){$pwquery = $db->query("SELECT password from public.user WHERE username='{$_POST['usrname']}';");
+    if($dbtest){$pwquery = $db->query("SELECT password from public.user WHERE username='{$_POST['usrname']}';");
     $pwquery->execute();
     alert($pwquery);}
   }
