@@ -30,13 +30,12 @@ if($dbtest){
   alert($user);
   $pwquery1->execute([$user]);
   $pw1 = $pwquery1->fetch();
-  $pw1 = array_map("flattentask", $pw1);
+  print_r($pw1);
   alert("Executed q1");
 
 }
 
 
-function flattentask($item) { return $item[0]; }
 
 function alert($msg) {
   echo "<script type='text/javascript'>alert('$msg');</script>";
