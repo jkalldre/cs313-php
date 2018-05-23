@@ -61,7 +61,7 @@ function alert($msg) {
       <h2>Column 2</h2>
       <?php
       foreach($pw1 as $task){
-        echo "<div class='task'>$task</div>";
+        echo "<div class='task'>$task['title']</div>";
       }
       ?>
       <div class="task">stuff</div>
