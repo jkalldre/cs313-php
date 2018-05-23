@@ -1,7 +1,7 @@
 <?php
 session_start();
 $dbtest = true;
-if($dbtest /*&& !isset($_POST['login'])*/) {
+if($dbtest && !isset($_POST['login'])) {
   $dbUrl = getenv('DATABASE_URL');
   $dbopts = parse_url($dbUrl);
   $dbHost = $dbopts["host"];
@@ -12,22 +12,19 @@ if($dbtest /*&& !isset($_POST['login'])*/) {
   try
   {
     $_SESSION['db'] = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-    if(isset($db))alert("DB Synced");
+    // if(isset($db))alert("DB Synced");
   }
   catch (PDOException $ex)
   {
     echo 'Error!: ' . $ex->getMessage();
     die();
   }
-  alert("made it past dbconnect!");
+  // alert("made it past dbconnect!");
 }
 // include('./php/dbconnect.php');
 $pwd = 'supergoodpassword';
-function alert($msg) {
-  echo "<script type='text/javascript'>alert('$msg');</script>";
-}
 if(isset($_POST['login'])){
-  if(!isset($db)) alert("DB IS NOT SET");
+  if(!isset($_SESSION['db'])) alert("DB IS NOT SET");
   else alert("db is set");
   alert("Running Query");
   if($dbtest){
@@ -51,6 +48,10 @@ if(isset($_POST['login'])){
     }
     else alert("Invalid Username or Password");
   }
+}
+
+function alert($msg) {
+  echo "<script type='text/javascript'>alert('$msg');</script>";
 }
 ?>
 <!-- <!doctype html> -->
