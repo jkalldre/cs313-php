@@ -11,7 +11,7 @@ if($dbtest /*&& !isset($_POST['login'])*/) {
   $dbName = ltrim($dbopts["path"],'/');
   try
   {
-    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    $_SESSION['db'] = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
     if(isset($db))alert("DB Synced");
   }
   catch (PDOException $ex)
@@ -27,27 +27,28 @@ function alert($msg) {
   echo "<script type='text/javascript'>alert('$msg');</script>";
 }
 if(isset($_POST['login'])){
-  // alert($_POST['usrpwd'] == $pwd);
-  // alert($_POST['usrpwd']);
   if(!isset($db)) alert("DB IS NOT SET");
   else alert("db is set");
   alert("Running Query");
   if($dbtest){
     $dbq1 = "SELECT password FROM public.user WHERE username=?";
     $dbq2 = "SELECT crypt(?,?)";
-    $pwquery1 = $db->prepare($dbq1);
+
+    $pwquery1 = $_SESSION['db']->prepare($dbq1);
     $pwquery1->execute([$_POST['usrname']]);
     $pw1 = $pwquery1->fetch();
     alert("Executed q1");
-    $pwquery2 = $db->prepare($dbq2);
+
+    $pwquery2 = $_SESSION['db']->prepare($dbq2);
     alert($pw1[0]);
     $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
     $pw2 = $pwquery2->fetch();
     alert("Executed q2");
 
-    // alert("QUERYSTR: ".$dbq1);
-    // alert("Executing");
-    if($pw2[0] == $pw1[0]) alert("Verified User");
+    if($pw2[0] == $pw1[0]){
+      alert("Verified User");
+
+    }
     else alert("Invalid Username or Password");
   }
 }
