@@ -12,17 +12,13 @@ if($dbtest) {
   try
   {
     $_SESSION['db'] = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-    // if(isset($db))alert("DB Synced");
   }
   catch (PDOException $ex)
   {
     echo 'Error!: ' . $ex->getMessage();
     die();
   }
-  // alert("made it past dbconnect!");
 }
-// include('./php/dbconnect.php');
-$pwd = 'supergoodpassword';
 if(isset($_POST['login'])){
   // if(!isset($_SESSION['db'])) alert("DB IS NOT SET");
   // else alert("db is set");
