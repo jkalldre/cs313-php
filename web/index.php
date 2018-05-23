@@ -41,6 +41,7 @@ if(isset($_POST['login'])){
     // alert("Executed q2");
 
     if($pw2[0] == $pw1[0]){
+      $_SESSION['user'] = $_POST['usrname'];
       header("Location: https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php");
       die();
     }

@@ -10,6 +10,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
-    <h1>Welcome Verified User!</h1>
+    <div class="header">Task Manager</div>
+    <div class="row">
+      <div class= "column left">
+        <h2>Column 1</h2>
+        <ul>
+          <li>stuff</li>
+          <li>stuff</li>
+          <li>stuff</li>
+          <li>stuff</li>
+          <li>stuff</li>
+          <li><?php echo $_SESSION['user'];?></li>
+        </ul>
+      </div>
+      <div class="column right">
+        <h2>Column 2</h2>
+        <ul>
+          <li>stuff</li>
+          <li>stuff</li>
+          <li>stuff</li>
+          <li>stuff</li>
+          <li>stuff</li>
+        </ul>
+      </div>
+    </div>
+
   </body>
 </html>

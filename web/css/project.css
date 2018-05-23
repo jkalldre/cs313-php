@@ -9,6 +9,8 @@
 /* Tags */
 body {
   background-color: var(--blue1);
+  margin:0;
+  padding:0;
 }
 
 form {
@@ -27,14 +29,24 @@ button:hover {
 .column {
   float:left;
   padding:10px;
+  margin:0;
+  width:46.94%;
 }
 
 .left {
-  wid   th:50%;
+  background-color: var(--blue2);
+  /* width:50%; */
 }
 
 .right {
-  width:50%;
+  background-color: var(--blue3);
+  /* width:50%; */
+}
+
+.row:after {
+  content: "";
+    display: table;
+    clear: both;
 }
 
 .imgsignin {
