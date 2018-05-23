@@ -1,7 +1,7 @@
 <?php
   session_start();
-  define('URL', 'https://ancient-scrubland-36003.herokuapp.com/');
   include_once('./php/dbconnect.php');
+  alert("made it past dbconnect!");
   $pwd = 'supergoodpassword';
   function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
