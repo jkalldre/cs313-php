@@ -30,6 +30,8 @@ function alert($msg) {
 if(isset($_POST['login'])){
   // alert($_POST['usrpwd'] == $pwd);
   // alert($_POST['usrpwd']);
+  if(!isset($db)) alert("DB IS NOT SET");
+  else alert("db is set");
   alert("Running Query");
   if($dbtest){
     $dbq = "SELECT password FROM public.user WHERE username='"."?"."';";
