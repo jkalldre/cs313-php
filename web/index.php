@@ -38,7 +38,7 @@
       $pwquery = $db->query("SELECT password from public.user WHERE username='{$_POST['usrname']}';");
     alert("Executing");
     $pwquery->execute();
-    alert("Executed");
+    alert("Executed"); 
     alert($pwquery);}
   }
   ?>
