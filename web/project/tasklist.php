@@ -55,6 +55,7 @@ function alert($msg) {
     <div class= "column left">
       <h2>New Task</h2>
       <form>
+        
       </form>
     </div>
     <div class="column right">
