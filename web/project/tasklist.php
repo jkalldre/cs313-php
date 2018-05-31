@@ -29,13 +29,13 @@ if($dbtest){
   $pwquery1 = $db->prepare($dbq1);
   // alert($user);
   $pwquery1->execute([$user]);
-  $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
+  $pw1 = $pwquery1->fetchAll(PDO::FETCH_NAMED);
   // print_r($pw1);
   // alert("Executed q1");
+  print_r($pw1);
 
 }
 
-print_r($pw1);
 
 function alert($msg) {
   echo "<script type='text/javascript'>alert('$msg');</script>";
