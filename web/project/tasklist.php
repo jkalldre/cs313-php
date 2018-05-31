@@ -24,7 +24,7 @@ if($dbtest) {
 // if(!isset($db)) alert("DB IS NOT SET");
 // else alert("db is set");
 if($dbtest){
-  $dbq1 = "SELECT title, category FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
+  $dbq1 = "SELECT title FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
   // alert($dbq1);
   $pwquery1 = $db->prepare($dbq1);
   // alert($user);
