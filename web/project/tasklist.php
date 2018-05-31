@@ -29,7 +29,7 @@ if($dbtest){
   $pwquery1 = $db->prepare($dbq1);
   // alert($user);
   $pwquery1->execute([$user]);
-  $pw1 = $pwquery1->fetchAll(PDO::FETCH_NAMED);
+  $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
   // print_r($pw1);
   // alert("Executed q1");
   var_dump($pw1);
