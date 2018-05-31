@@ -32,7 +32,7 @@ if($dbtest){
   $pw1 = $pwquery1->fetchAll(PDO::FETCH_NAMED);
   // print_r($pw1);
   // alert("Executed q1");
-  print_r($pw1);
+  var_dump($pw1);
 
 }
 
