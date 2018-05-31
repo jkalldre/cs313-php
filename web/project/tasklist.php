@@ -35,7 +35,7 @@ if($dbtest){
 
 }
 
-
+print_r($pw1);
 
 function alert($msg) {
   echo "<script type='text/javascript'>alert('$msg');</script>";
