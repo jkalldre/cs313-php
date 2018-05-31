@@ -13,7 +13,7 @@ if($dbtest) {
   $dbName = ltrim($dbopts["path"],'/');
   try
   {
-    $_SESSION['db'] = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
   }
   catch (PDOException $ex)
   {
@@ -21,12 +21,12 @@ if($dbtest) {
     die();
   }
 }
-// if(!isset($_SESSION['db'])) alert("DB IS NOT SET");
+// if(!isset($db)) alert("DB IS NOT SET");
 // else alert("db is set");
 if($dbtest){
-  $dbq1 = "SELECT title FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
+  $dbq1 = "SELECT title, category FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
   // alert($dbq1);
-  $pwquery1 = $_SESSION['db']->prepare($dbq1);
+  $pwquery1 = $db->prepare($dbq1);
   // alert($user);
   $pwquery1->execute([$user]);
   $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
@@ -55,7 +55,7 @@ function alert($msg) {
     <div class= "column left">
       <h2>New Task</h2>
       <form>
-        
+
       </form>
     </div>
     <div class="column right">
