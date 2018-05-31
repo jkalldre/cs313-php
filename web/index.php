@@ -11,7 +11,7 @@ if($dbtest) {
   $dbName = ltrim($dbopts["path"],'/');
   try
   {
-    $_SESSION['db'] = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
   }
   catch (PDOException $ex)
   {
@@ -20,18 +20,18 @@ if($dbtest) {
   }
 }
 if(isset($_POST['login'])){
-  // if(!isset($_SESSION['db'])) alert("DB IS NOT SET");
+  // if(!isset($db)) alert("DB IS NOT SET");
   // else alert("db is set");
   if($dbtest){
     $dbq1 = "SELECT password FROM public.user WHERE username=?";
     $dbq2 = "SELECT crypt(?,?)";
 
-    $pwquery1 = $_SESSION['db']->prepare($dbq1);
+    $pwquery1 = $db->prepare($dbq1);
     $pwquery1->execute([$_POST['usrname']]);
     $pw1 = $pwquery1->fetch();
     // alert("Executed q1");
 
-    $pwquery2 = $_SESSION['db']->prepare($dbq2);
+    $pwquery2 = $db->prepare($dbq2);
     $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
     $pw2 = $pwquery2->fetch();
     // alert("Executed q2");
