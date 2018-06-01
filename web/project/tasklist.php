@@ -83,8 +83,8 @@ function alert($msg) {
     <div class="column right">
       <h2>Column 2</h2>
       <?php
-      foreach($pw1 as $task){
-        echo "<div class='task'>{$task['title']}</div>";
+      for($i = 0; $i < count($pw1); $i++){
+        echo "<div class='task'><table><td>{$pw1[$i]['title']}</td></div>";
       }
       ?>
       <div class="task">stuff</div>
