@@ -1,6 +1,6 @@
 <?php
 session_start();
-$user = $_GET['user'];
+$user = 'jkalldre';//$_GET['user'];
 
 $dbtest = true;
 if($dbtest) {
@@ -11,9 +11,11 @@ if($dbtest) {
   $dbUser = $dbopts["user"];
   $dbPassword = $dbopts["pass"];
   $dbName = ltrim($dbopts["path"],'/');
+
   try
   {
     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    // $db = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;");//, 'postgres', 'Sousheldon66');
   }
   catch (PDOException $ex)
   {
