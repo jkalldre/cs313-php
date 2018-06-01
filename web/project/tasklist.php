@@ -79,7 +79,7 @@ function alert($msg) {
       <h2>New Task</h2>
       <form>
         <lable for="title"><b>Task Name:</b></lable>
-        <input class="signin" type="text" placeholder="Task Name" name="title" required>
+        <input class="" type="text" placeholder="Task Name" name="title" required>
         <br />
 
       </form>
