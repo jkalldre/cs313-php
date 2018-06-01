@@ -47,7 +47,11 @@ if($dbtest){
   // alert("Executed q1");
   // print_r($pw1);
   // var_dump($pw1);
-  $categories = getCategories();
+  $cate = getCategories();
+  // print_r($cate);
+  foreach($cate => $cat){
+    array_push($categories,$cat['title']);
+  }
   print_r($categories);
 }
 
