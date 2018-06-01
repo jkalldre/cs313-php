@@ -51,7 +51,7 @@ if($dbtest){
 }
 
 if (isset($_POST['newt'])){
-  $query = "INSERT INTO public.task (user_id,title,category)";
+  $query = "INSERT INTO public.task (user_id,title,category) VALUES ((SELECT user_id FROM public.user WHERE username='$user'),'$_POST['title']',2)";
   alert($query);
   // // // if(isset($_POST['date']))
   // // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
@@ -60,6 +60,7 @@ if (isset($_POST['newt'])){
   // $prepared = $db->prepare($query);
   // $db->exec($query);
   // $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
+  unset
 }
 
 function alert($msg) {
