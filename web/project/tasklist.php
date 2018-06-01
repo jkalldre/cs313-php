@@ -84,7 +84,7 @@ function alert($msg) {
       <h2>Column 2</h2>
       <?php
       for($i = 0; $i < count($pw1); $i++){
-        echo "<div class='task'><table><td>{$pw1[$i]['title']}</td></div>";
+        echo "<div class='task'><table><td>{$pw1[$i]['title']}</td></table></div>";
       }
       ?>
       <div class="task">stuff</div>
