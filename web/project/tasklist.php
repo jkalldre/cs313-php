@@ -46,23 +46,25 @@ if($dbtest){
   // alert($user);
   $pwquery1->execute([$user]);
   $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
-  // alert("Executed q1");
-  // print_r($pw1);
-  // var_dump($pw1);
   $categories = getCategories();
-  // print_r($cate);
-  // $categories = array();
-  // foreach($cate => $cat){
-  //   array_push($categories,$cat['title']);
-  // }
   // print_r($categories);
-  print_r($categories);
 }
 
+if (isset($_POST['add'])){
+  $query = 'INSERT INTO public.task (user_id,title,category)';
+  // if(isset($_POST['date']))
+    // $query = 'INSERT INTO public.task (user_id,title,category,date)';
+  $query += "VALUES((SELECT user_id FROM public.user WHERE username=?),?,?)";
+  $query = $db->prepare($query);
+  $query->execute([$user,$_POST['title'],$_POST['category']]);
+  $query = $query->fetchAll(PDO::FETCH_ASSOC);
+  
+}
 
 function alert($msg) {
   echo "<script type='text/javascript'>alert('$msg');</script>";
 }
+
 ?>
 
 <html>
@@ -77,23 +79,28 @@ function alert($msg) {
   <div class="row">
     <div class= "column left">
       <h2>New Task</h2>
-      <form>
-        <lable for="title"><b>Task Name:</b></lable>
-        <input class="" type="text" placeholder="Task Name" name="title" required>
-        <br />
+      <form method="post" action="">
+        <table class="">
+        <tr><td><lable for="title"><b>Task Name:</b></lable></td>
+        <td><input class="" type="text" placeholder="Task Name" name="title" required></td></tr>
+        <tr><td><lable for="category"><b>Category:</b></lable></td>
+        <td><input class="" type="text" placeholder="Category" name="category" required></td></tr>
+        <tr><td><lable for="date"><b>Due Date:</b></lable></td>
+        <td><input type="date" name="date"/></td></tr>
 
+
+      </table>
+      <button class="loginbtn" type="submit" name="newt">Add Task</button>
       </form>
     </div>
     <div class="column right">
-      <h2>Column 2</h2>
+      <h2>Tasks</h2>
       <?php
       for($i = 0; $i < count($pw1); $i++){
         echo "<div class='task'><table><tr><td>{$pw1[$i]['title']}</td>
         <td>{$categories[($pw1[$i]['category_id'])-1]['title']}</td></tr></table></div>";
       }
       ?>
-      <div class="task">stuff</div>
-      <div class="task">stuff</div>
     </div>
   </div>
 
