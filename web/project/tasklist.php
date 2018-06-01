@@ -49,9 +49,9 @@ if($dbtest){
   // alert("Executed q1");
   // print_r($pw1);
   // var_dump($pw1);
-  $cate = getCategories();
+  $categories = getCategories();
   // print_r($cate);
-  $categories = array();
+  // $categories = array();
   // foreach($cate => $cat){
   //   array_push($categories,$cat['title']);
   // }
@@ -84,7 +84,8 @@ function alert($msg) {
       <h2>Column 2</h2>
       <?php
       for($i = 0; $i < count($pw1); $i++){
-        echo "<div class='task'><table><td>{$pw1[$i]['title']}</td></table></div>";
+        echo "<div class='task'><table><tr><td>{$pw1[$i]['title']}</td>
+        <td>{$categories[$pw1[$i]['category_id']]['title']}</td></tr></table></div>";
       }
       ?>
       <div class="task">stuff</div>
