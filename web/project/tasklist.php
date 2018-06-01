@@ -58,7 +58,7 @@ if (isset($_POST['add'])){
   $query = $db->prepare($query);
   $query->execute([$user,$_POST['title']);
   $query = $query->fetchAll(PDO::FETCH_ASSOC);
-
+alert("executed");
 }
 
 function alert($msg) {
