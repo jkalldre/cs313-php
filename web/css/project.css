@@ -109,4 +109,8 @@ table {
   width:100%;
   text-align: left;
 }
+
+td {
+  width: 50%;
+}
 /* IDs */
