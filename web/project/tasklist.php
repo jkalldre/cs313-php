@@ -53,12 +53,12 @@ if($dbtest){
 if (isset($_POST['add'])){
   $query = 'INSERT INTO public.task (user_id,title,category)';
   // if(isset($_POST['date']))
-    // $query = 'INSERT INTO public.task (user_id,title,category,date)';
+  // $query = 'INSERT INTO public.task (user_id,title,category,date)';
   $query += "VALUES((SELECT user_id FROM public.user WHERE username=?),?,2)";
+  alert($query);
   $query = $db->prepare($query);
   $query->execute([$user,$_POST['title']);
   $query = $query->fetchAll(PDO::FETCH_ASSOC);
-alert("executed");
 }
 
 function alert($msg) {
@@ -81,28 +81,28 @@ function alert($msg) {
       <h2>New Task</h2>
       <form method="post" action="">
         <table class="">
-        <tr><td><lable for="title"><b>Task Name:</b></lable></td>
-        <td><input class="" type="text" placeholder="Task Name" name="title" required></td></tr>
-        <tr><td><lable for="category"><b>Category:</b></lable></td>
-        <td><input class="" type="text" placeholder="Category" name="category" required></td></tr>
-        <tr><td><lable for="date"><b>Due Date:</b></lable></td>
-        <td><input type="date" name="date"/></td></tr>
+          <tr><td><lable for="title"><b>Task Name:</b></lable></td>
+            <td><input class="" type="text" placeholder="Task Name" name="title" required></td></tr>
+            <tr><td><lable for="category"><b>Category:</b></lable></td>
+              <td><input class="" type="text" placeholder="Category" name="category" required></td></tr>
+              <tr><td><lable for="date"><b>Due Date:</b></lable></td>
+                <td><input type="date" name="date"/></td></tr>
 
 
-      </table>
-      <button class="loginbtn" type="submit" name="newt">Add Task</button>
-      </form>
-    </div>
-    <div class="column right">
-      <h2>Tasks</h2>
-      <?php
-      for($i = 0; $i < count($pw1); $i++){
-        echo "<div class='task'><table><tr><td>{$pw1[$i]['title']}</td>
-        <td>{$categories[($pw1[$i]['category_id'])-1]['title']}</td></tr></table></div>";
-      }
-      ?>
-    </div>
-  </div>
+              </table>
+              <button class="loginbtn" type="submit" name="newt">Add Task</button>
+            </form>
+          </div>
+          <div class="column right">
+            <h2>Tasks</h2>
+            <?php
+            for($i = 0; $i < count($pw1); $i++){
+              echo "<div class='task'><table><tr><td>{$pw1[$i]['title']}</td>
+              <td>{$categories[($pw1[$i]['category_id'])-1]['title']}</td></tr></table></div>";
+            }
+            ?>
+          </div>
+        </div>
 
-</body>
-</html>
+      </body>
+      </html>
