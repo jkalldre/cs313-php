@@ -56,9 +56,9 @@ if (isset($_POST['newt'])){
   // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
   $query = $query . "VALUES((SELECT user_id FROM public.user WHERE username=?),?,2)";
   alert($query);
-  $query = $db->prepare($query);
-  $query->execute([$user,$_POST['title']);
-  $query = $query->fetchAll(PDO::FETCH_ASSOC);
+  $prepared = $db->prepare($query);
+  $prepared->execute([$user,$_POST['title']);
+  // $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function alert($msg) {
