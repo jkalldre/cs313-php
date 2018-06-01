@@ -50,10 +50,10 @@ if($dbtest){
   $cate = getCategories();
   // print_r($cate);
   $categories = array();
-  foreach($cate => $cat){
-    array_push($categories,$cat['title']);
-  }
-  print_r($categories);
+  // foreach($cate => $cat){
+  //   array_push($categories,$cat['title']);
+  // }
+  // print_r($categories);
 }
 
 
