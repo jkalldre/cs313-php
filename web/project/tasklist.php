@@ -23,6 +23,20 @@ if($dbtest) {
 }
 // if(!isset($db)) alert("DB IS NOT SET");
 // else alert("db is set");
+function getCategories() {
+  global $db;
+  $dbq = "SELECT title, category_id FROM public.category";
+  try{
+    $query = $db->prepare($dbq);
+    $query->execute();
+    $categories = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $categories;
+  } catch (PDOException $e){
+    $e->getMessage();
+    echo $e;
+  }
+}
+
 if($dbtest){
   $dbq1 = "SELECT title, category_id FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
   // alert($dbq1);
@@ -31,9 +45,10 @@ if($dbtest){
   $pwquery1->execute([$user]);
   $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
   // alert("Executed q1");
-  print_r($pw1);
-  var_dump($pw1);
-
+  // print_r($pw1);
+  // var_dump($pw1);
+  $categories = getCategories();
+  print_r($categories);
 }
 
 
