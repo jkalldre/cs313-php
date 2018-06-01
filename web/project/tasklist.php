@@ -51,8 +51,8 @@ if($dbtest){
 }
 
 if (isset($_POST['newt'])){
-  alert("newt");
-  // $query = 'INSERT INTO public.task (user_id,title,category)';
+  $query = "INSERT INTO public.task (user_id,title,category)";
+  alert($query);
   // // // if(isset($_POST['date']))
   // // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
   // $query = $query . "VALUES((SELECT user_id FROM public.user WHERE username='$user'),'$_POST['title']',2)";
