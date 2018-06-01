@@ -1,6 +1,6 @@
 <?php
 session_start();
-$user = 'jkalldre';//$_GET['user'];
+$user = $_GET['user'];
 
 $dbtest = true;
 if($dbtest) {
