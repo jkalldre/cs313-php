@@ -54,10 +54,10 @@ if (isset($_POST['newt'])){
   $query = 'INSERT INTO public.task (user_id,title,category)';
   // // if(isset($_POST['date']))
   // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
-  $query = $query . "VALUES((SELECT user_id FROM public.user WHERE username=?),?,2)";
+  $query = $query . "VALUES((SELECT user_id FROM public.user WHERE username='$user'),'$_POST['title']',2)";
   alert($query);
-  $prepared = $db->prepare($query);
-  $prepared->execute([$user,$_POST['title']);
+  // $prepared = $db->prepare($query);
+  $prepared->execute();
   // $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
 }
 
