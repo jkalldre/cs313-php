@@ -51,10 +51,10 @@ if($dbtest){
 }
 
 if (isset($_POST['add'])){
-  // $query = 'INSERT INTO public.task (user_id,title,category)';
+  $query = 'INSERT INTO public.task (user_id,title,category)';
   // // if(isset($_POST['date']))
   // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
-  // $query += "VALUES((SELECT user_id FROM public.user WHERE username=?),?,2)";
+  $query += "VALUES((SELECT user_id FROM public.user WHERE username=?),?,2)";
   // alert($query);
   // $query = $db->prepare($query);
   // $query->execute([$user,$_POST['title']);
