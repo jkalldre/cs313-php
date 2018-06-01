@@ -78,6 +78,9 @@ function alert($msg) {
     <div class= "column left">
       <h2>New Task</h2>
       <form>
+        <lable for="title"><b>Task Name:</b></lable>
+        <input class="signin" type="text" placeholder="Task Name" name="title" required>
+        <br />
 
       </form>
     </div>
