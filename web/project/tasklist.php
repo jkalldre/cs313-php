@@ -57,7 +57,7 @@ if (isset($_POST['newt'])){
   $query = $query . "VALUES((SELECT user_id FROM public.user WHERE username='$user'),'$_POST['title']',2)";
   alert($query);
   // $prepared = $db->prepare($query);
-  $prepared->execute();
+  $db->exec($query);
   // $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
 }
 
