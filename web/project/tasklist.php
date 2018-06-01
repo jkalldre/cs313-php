@@ -50,7 +50,7 @@ if($dbtest){
   // print_r($categories);
 }
 
-if (isset($_POST['add'])){
+if (isset($_POST['newt'])){
   $query = 'INSERT INTO public.task (user_id,title,category)';
   // // if(isset($_POST['date']))
   // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
