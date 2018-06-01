@@ -86,7 +86,7 @@ function alert($msg) {
       <?php
       for($i = 0; $i < count($pw1); $i++){
         echo "<div class='task'><table><tr><td>{$pw1[$i]['title']}</td>
-        <td>{$categories[$pw1[$i]['category_id']]['title']}</td></tr></table></div>";
+        <td>{$categories[($pw1[$i]['category_id'])-1]['title']}</td></tr></table></div>";
       }
       ?>
       <div class="task">stuff</div>
