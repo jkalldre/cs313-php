@@ -49,6 +49,7 @@ if($dbtest){
   // var_dump($pw1);
   $cate = getCategories();
   // print_r($cate);
+  $categories = array();
   foreach($cate => $cat){
     array_push($categories,$cat['title']);
   }
