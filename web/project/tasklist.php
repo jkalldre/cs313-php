@@ -60,7 +60,7 @@ if (isset($_POST['newt'])){
   // $prepared = $db->prepare($query);
   // $db->exec($query);
   // $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
-  unset
+  unset($_POST['newt']);
 }
 
 function alert($msg) {
