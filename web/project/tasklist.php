@@ -56,6 +56,7 @@ if($dbtest){
   //   array_push($categories,$cat['title']);
   // }
   // print_r($categories);
+  print_r($pw1);
 }
 
 
