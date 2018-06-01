@@ -104,4 +104,8 @@ div.task {
 div.task:hover{
   opacity: .8;
 }
+
+td {
+  width: 50%;
+}
 /* IDs */
