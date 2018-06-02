@@ -54,7 +54,7 @@ if (isset($_POST['newt'])){
   alert("testing insert");
   $title = $_POST['title'];
   try {
-    $query = "INSERT INTO task (user_id,title,category) VALUES (1,'$title',2)";
+    $query = "INSERT INTO task (user_id,title,category_id) VALUES (1,'$title',2)";
     $db->exec($query);
     alert("inset success!");
   } catch (PDOException $e){
