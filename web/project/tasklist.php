@@ -42,10 +42,10 @@ function getCategories() {
 function existingCategory($category){
   $categories = getCategories();
   print_r($categories);
-  // foreach($categories => $cat){
-  //   if ($cat['title'] == $category)
-  //     return true;
-  // }
+  foreach($categories as $cat){
+    if ($cat['title'] == $category)
+      return true;
+  }
   return false;
 }
 
