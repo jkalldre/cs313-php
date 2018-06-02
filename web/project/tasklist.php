@@ -43,7 +43,7 @@ function existingCategory($category){
   $categories = getCategories();
   // print_r($categories);
   foreach($categories as $cat){
-    if ($cat['title'] == $category)
+    if (strtolower($cat['title']) == strtolower($category))
       return true;
   }
   return false;
@@ -85,7 +85,8 @@ if ($_POST['newt'] == 'process'){
   try {
     $query = "INSERT INTO task (user_id,title,category_id) VALUES
     ((SELECT user_id FROM public.user WHERE username='$user')
-      ,'$title',5)";
+      ,'$title'
+      ,(SELECT category_id FROM public.category WHERE title='$category'))";
     $db->exec($query);
     header('location:tasklist.php?user='.$user);
     // alert("inset success!");
