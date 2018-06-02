@@ -64,7 +64,7 @@ if ($_POST['newt'] == 'process'){
   alert("testing insert");
   $title = $_POST['title'];
   $category = $_POST['category'];
-  // alert(existingCategory($category));
+  alert(existingCategory($category));
   // try {
   //   $query = "INSERT INTO task (user_id,title,category_id) VALUES (1,'$title',2)";
   //   $db->exec($query);
@@ -101,7 +101,7 @@ function alert($msg) {
   <div class="row">
     <div class= "column left">
       <h2>New Task</h2>
-      <form method="post" action="tasklist.php?user=jkalldre">
+      <form method="post" action=<?php echo $userstr ?>>
         <table class="">
           <tr><td><lable for="title"><b>Task Name:</b></lable></td>
             <td><input class="" type="text" placeholder="Task Name" name="title" required></td></tr>
