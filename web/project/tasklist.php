@@ -51,10 +51,12 @@ if($dbtest){
 }
 
 if (isset($_POST['newt'])){
+  alert("testing insert")
   $title = $_POST['title'];
   try {
     $query = "INSERT INTO public.task (user_id,title,category) VALUES (1,'$title',2)";
     $db->exec($query);
+    alert("inset success!");
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
