@@ -23,6 +23,26 @@ if($dbtest) {
     die();
   }
 }
+
+function killTask($index){
+  global $db;
+  try{
+    // $query = $db->prepare($dbq);
+    $dbq = "DELETE FROM task WHERE task_id=$index";
+    $db->exec($dbq);
+    header('location:tasklist.php?user='.$user);
+    // $categories = $query->fetchAll(PDO::FETCH_ASSOC);
+    // return $categories;
+  } catch (PDOException $e){
+    $e->getMessage();
+    echo $e;
+  }
+}
+
+if (isset($_GET['id'])){
+  killTask($_GET['id']);
+}
+
 // if(!isset($db)) alert("DB IS NOT SET");
 // else alert("db is set");
 function getCategories() {
