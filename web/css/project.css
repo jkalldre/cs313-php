@@ -104,7 +104,9 @@ div.task {
 div.task:hover{
   opacity: .8;
 }
-
+a {
+  display:block;
+}
 table {
   width:100%;
   text-align: left;
