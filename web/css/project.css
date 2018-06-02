@@ -26,6 +26,17 @@ button:hover {
   opacity: .8;
 }
 /* Classes */
+.cl1 {
+  width: 2%;
+}
+
+.cl2 {
+  width: 48%;
+}
+
+.cl3 {
+  width: 50%;
+}
 .column {
   float:left;
   padding:0px;
@@ -113,6 +124,6 @@ table {
 }
 
 td {
-  width: 50%;
+  /* width: 50%; */
 }
 /* IDs */

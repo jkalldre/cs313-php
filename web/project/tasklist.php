@@ -165,11 +165,13 @@ function alert($msg) {
             for($i = 0; $i < count($pw1); $i++){
               $index = $userstr . "&id=" . $pw1[$i]['task_id'];
               $edit = $userstr . "&edit=". $pw1[$i]['task_id'];
-              echo "<a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a>
-              <div class='task'><a href=$index><table><tr>
-              <td>{$pw1[$i]['title']}</td>
-              <td>{$categories[($pw1[$i]['category_id'])-1]['title']}</td>
-              </tr></table></a></div>";
+              echo "
+              <div class='task'><table><tr>
+              <td class='cl1'><a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a></td>
+              <a href=$index>
+              <td class='cl2'>{$pw1[$i]['title']}</td>
+              <td class='cl3'>{$categories[($pw1[$i]['category_id'])-1]['title']}</td></a>
+              </tr></table></div>";
             }
             ?>
           </div>
