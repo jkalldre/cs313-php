@@ -100,7 +100,7 @@ function alert($msg) {
   <div class="row">
     <div class= "column left">
       <h2>New Task</h2>
-      <form method="post" action=<?php echo $userstr?>>
+      <form method="post" action="tasklist.php?user=jkalldre">
         <table class="">
           <tr><td><lable for="title"><b>Task Name:</b></lable></td>
             <td><input class="" type="text" placeholder="Task Name" name="title" required></td></tr>
