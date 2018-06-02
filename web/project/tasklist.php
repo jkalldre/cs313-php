@@ -30,7 +30,8 @@ function killTask($index){
     // $query = $db->prepare($dbq);
     $dbq = "DELETE FROM task WHERE task_id=$index";
     $db->exec($dbq);
-    header('location:tasklist.php?user='.$user);
+    $str = 'location:tasklist.php?user='.$user;
+    header($str);
     // $categories = $query->fetchAll(PDO::FETCH_ASSOC);
     // return $categories;
   } catch (PDOException $e){
