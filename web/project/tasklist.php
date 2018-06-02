@@ -93,7 +93,6 @@ if($dbtest){
   // alert($user);
   $pwquery1->execute([$user]);
   $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
-  print_r($pw1);
   $categories = getCategories();
   // print_r($categories);
 }
@@ -164,9 +163,13 @@ function alert($msg) {
             <h2>Tasks</h2>
             <?php
             for($i = 0; $i < count($pw1); $i++){
-              $index = $userstr . "&id=". $pw1[$i]['task_id'];
-              echo "<div class='task'><a href=$index><table><tr><td>{$pw1[$i]['title']}</td>
-              <td>{$categories[($pw1[$i]['category_id'])-1]['title']}</td></tr></table></a></div>";
+              $index = $userstr . "&id=" . $pw1[$i]['task_id'];
+              $edit = $userstr . "&edit=". $pw1[$i]['task_id'];
+              echo "<div class='task'><a href=$edit><img href='../img/threedot.jpg'/></a>
+              <a href=$index><table><tr>
+              <td>{$pw1[$i]['title']}</td>
+              <td>{$categories[($pw1[$i]['category_id'])-1]['title']}</td></tr>
+              </table></a></div>";
             }
             ?>
           </div>
