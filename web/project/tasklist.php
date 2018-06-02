@@ -77,7 +77,7 @@ if($dbtest){
 if ($_POST['newt'] == 'process'){
   alert("testing insert");
   $title = $_POST['title'];
-  $category = $_POST['category'];
+  $category = ucwords(strtolower($_POST['category']));
   if (!existingCategory($category)){
     insertCategory($category);
     $categories = getCategories();
