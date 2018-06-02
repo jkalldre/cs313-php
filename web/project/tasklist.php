@@ -52,14 +52,19 @@ if($dbtest){
 
 if (isset($_POST['newt'])){
   $title = $_POST['title'];
-  $query = "INSERT INTO public.task (user_id,title,category) VALUES (1,'$title',2)";
-  alert($query);
+  try {
+    $query = "INSERT INTO public.task (user_id,title,category) VALUES (1,'$title',2)";
+    $db->exec($query);
+  } catch (PDOException $e){
+    $e->getMessage();
+    echo $e;
+  }
+  // alert($query);
   // // // if(isset($_POST['date']))
   // // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
   // $query = $query . "VALUES((SELECT user_id FROM public.user WHERE username='$user'),'$_POST['title']',2)";
   // alert($query);
   // $prepared = $db->prepare($query);
-  // $db->exec($query);
   // $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
   unset($_POST['newt']);
 }
