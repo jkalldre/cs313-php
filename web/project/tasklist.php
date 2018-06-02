@@ -51,7 +51,7 @@ if($dbtest){
 }
 
 if (isset($_POST['newt'])){
-  $query = "INSERT INTO public.task (user_id,title,category) VALUES (1,$_POST['title'],2)";
+  $query = "INSERT INTO public.task (user_id,title,category) VALUES (1,'$_POST['title']',2)";
   alert($query);
   // // // if(isset($_POST['date']))
   // // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
