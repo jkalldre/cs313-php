@@ -26,6 +26,7 @@ if($dbtest) {
 
 function killTask($index){
   global $db;
+  global $user;
   try{
     // $query = $db->prepare($dbq);
     $dbq = "DELETE FROM task WHERE task_id=$index";
