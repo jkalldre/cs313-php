@@ -64,7 +64,7 @@ function insertCategory($category){
 }
 
 if($dbtest){
-  $dbq1 = "SELECT title, category_id FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
+  $dbq1 = "SELECT task_id,title, category_id FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
   // alert($dbq1);
   $pwquery1 = $db->prepare($dbq1);
   // alert($user);
