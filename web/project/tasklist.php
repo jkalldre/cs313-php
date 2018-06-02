@@ -49,6 +49,20 @@ function existingCategory($category){
   return false;
 }
 
+function insertCategory($category){
+  global $db;
+  try{
+    // $query = $db->prepare($dbq);
+    $dbq = "INSERT INTO category (title) VALUES ('$category')";
+    $db->exec($dbq);
+    // $categories = $query->fetchAll(PDO::FETCH_ASSOC);
+    // return $categories;
+  } catch (PDOException $e){
+    $e->getMessage();
+    echo $e;
+  }
+}
+
 if($dbtest){
   $dbq1 = "SELECT title, category_id FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
   // alert($dbq1);
@@ -64,7 +78,9 @@ if ($_POST['newt'] == 'process'){
   alert("testing insert");
   $title = $_POST['title'];
   $category = $_POST['category'];
-  alert(existingCategory($category));
+  if (!existingCategory($category){
+    insertCategory($category);
+  }
   // try {
   //   $query = "INSERT INTO task (user_id,title,category_id) VALUES (1,'$title',2)";
   //   $db->exec($query);
