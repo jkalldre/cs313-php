@@ -70,6 +70,7 @@ if($dbtest){
   // alert($user);
   $pwquery1->execute([$user]);
   $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
+  print_r($pw1);
   $categories = getCategories();
   // print_r($categories);
 }
