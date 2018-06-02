@@ -41,7 +41,7 @@ function getCategories() {
 
 function existingCategory($category){
   $categories = getCategories();
-  print_r($categories);
+  // print_r($categories);
   foreach($categories as $cat){
     if ($cat['title'] == $category)
       return true;
@@ -80,15 +80,18 @@ if ($_POST['newt'] == 'process'){
   $category = $_POST['category'];
   if (!existingCategory($category)){
     insertCategory($category);
+    $categories = getCategories();
   }
-  // try {
-  //   $query = "INSERT INTO task (user_id,title,category_id) VALUES (1,'$title',2)";
-  //   $db->exec($query);
-  //   // alert("inset success!");
-  // } catch (PDOException $e){
-  //   $e->getMessage();
-  //   echo $e;
-  // }
+  try {
+    $query = "INSERT INTO task (user_id,title,category_id) VALUES
+    ((SELECT user_id FROM public.user WHERE username='$user')
+      ,'$title',5)";
+    $db->exec($query);
+    // alert("inset success!");
+  } catch (PDOException $e){
+    $e->getMessage();
+    echo $e;
+  }
   // alert($query);
   // // // if(isset($_POST['date']))
   // // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
