@@ -78,7 +78,7 @@ if ($_POST['newt'] == 'process'){
   alert("testing insert");
   $title = $_POST['title'];
   $category = $_POST['category'];
-  if (!existingCategory($category){
+  if (!existingCategory($category)){
     insertCategory($category);
   }
   // try {
