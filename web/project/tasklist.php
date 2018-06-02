@@ -63,7 +63,7 @@ if ($_POST['newt'] == 'process'){
   alert("testing insert");
   $title = $_POST['title'];
   $category = $_POST['category'];
-  alert(existingCategory($category));
+  // alert(existingCategory($category));
   // try {
   //   $query = "INSERT INTO task (user_id,title,category_id) VALUES (1,'$title',2)";
   //   $db->exec($query);
