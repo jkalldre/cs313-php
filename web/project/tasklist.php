@@ -50,13 +50,13 @@ if($dbtest){
   // print_r($categories);
 }
 
-if (isset($_POST['newt'])){
+if ($_POST['newt'] == 'process'){
   alert("testing insert");
   $title = $_POST['title'];
   try {
     $query = "INSERT INTO task (user_id,title,category_id) VALUES (1,'$title',2)";
     $db->exec($query);
-    alert("inset success!");
+    // alert("inset success!");
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
@@ -68,7 +68,7 @@ if (isset($_POST['newt'])){
   // alert($query);
   // $prepared = $db->prepare($query);
   // $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
-  unset($_POST['newt']);
+  $_POST['newt'] = 'done';
 }
 
 function alert($msg) {
@@ -100,7 +100,7 @@ function alert($msg) {
 
 
               </table>
-              <button class="loginbtn" type="submit" name="newt">Add Task</button>
+              <button class="loginbtn" type="submit" name="newt" value="process">Add Task</button>
             </form>
           </div>
           <div class="column right">
