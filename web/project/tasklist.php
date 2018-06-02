@@ -87,6 +87,7 @@ if ($_POST['newt'] == 'process'){
     ((SELECT user_id FROM public.user WHERE username='$user')
       ,'$title',5)";
     $db->exec($query);
+    header('location:index.php?user='.$user);
     // alert("inset success!");
   } catch (PDOException $e){
     $e->getMessage();
