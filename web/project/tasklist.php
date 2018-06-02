@@ -165,7 +165,7 @@ function alert($msg) {
             for($i = 0; $i < count($pw1); $i++){
               $index = $userstr . "&id=" . $pw1[$i]['task_id'];
               $edit = $userstr . "&edit=". $pw1[$i]['task_id'];
-              echo "<div class='task'><a href=$edit><img href='../img/threedot.jpg'></a>
+              echo "<div class='task'><a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a>
               <a href=$index><table><tr>
               <td>{$pw1[$i]['title']}</td>
               <td>{$categories[($pw1[$i]['category_id'])-1]['title']}</td></tr>
