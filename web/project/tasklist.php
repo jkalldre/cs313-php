@@ -150,7 +150,7 @@ function alert($msg) {
           <tr><td><lable for="title"><b>Task Name:</b></lable></td>
             <td><input class="" type="text" placeholder="Task Name" name="title" required></td></tr>
             <tr><td><lable for="category"><b>Category:</b></lable></td>
-              <td><input class="" type="text" placeholder="Category" name="category" required></td></tr>
+              <td><input class="" type="text" placeholder="Category" name="category" ></td></tr>
               <tr><td><lable for="date"><b>Due Date:</b></lable></td>
                 <td><input type="date" name="date"/></td></tr>
 
