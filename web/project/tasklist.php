@@ -1,7 +1,7 @@
 <?php
 session_start();
 $user = $_GET['user'];
-
+$userstr = 'user=' . $user;
 $dbtest = true;
 if($dbtest) {
   $dbUrl = getenv('DATABASE_URL');
@@ -39,6 +39,15 @@ function getCategories() {
   }
 }
 
+function existingCategory($category){
+  $categories = getCategories();
+  foreach($categories => $cat){
+    if ($cat['title'] == $category)
+      return true;
+  }
+  return false;
+}
+
 if($dbtest){
   $dbq1 = "SELECT title, category_id FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
   // alert($dbq1);
@@ -53,14 +62,16 @@ if($dbtest){
 if ($_POST['newt'] == 'process'){
   alert("testing insert");
   $title = $_POST['title'];
-  try {
-    $query = "INSERT INTO task (user_id,title,category_id) VALUES (1,'$title',2)";
-    $db->exec($query);
-    // alert("inset success!");
-  } catch (PDOException $e){
-    $e->getMessage();
-    echo $e;
-  }
+  $category = $_POST['category'];
+  alert(existingCategory($category));
+  // try {
+  //   $query = "INSERT INTO task (user_id,title,category_id) VALUES (1,'$title',2)";
+  //   $db->exec($query);
+  //   // alert("inset success!");
+  // } catch (PDOException $e){
+  //   $e->getMessage();
+  //   echo $e;
+  // }
   // alert($query);
   // // // if(isset($_POST['date']))
   // // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
@@ -89,7 +100,7 @@ function alert($msg) {
   <div class="row">
     <div class= "column left">
       <h2>New Task</h2>
-      <form method="post" action="tasklist.php?user=".$user>
+      <form method="post" action=<?php $userstr?>>
         <table class="">
           <tr><td><lable for="title"><b>Task Name:</b></lable></td>
             <td><input class="" type="text" placeholder="Task Name" name="title" required></td></tr>
