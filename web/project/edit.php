@@ -99,9 +99,11 @@ if (isset($_POST['newt1'])){
   try{
     $title = $_POST['title1'];
     $category = $_POST['category1'];
+    $date = $_POST['date1'];
     $dbq3 = "UPDATE task
              SET title=?,
-                 category_id=?
+                 category_id=?,
+                 due_date=?
              WHERE task_id=?";
     $update = $db->prepare($dbq3);
     alert($dbq3);
@@ -112,7 +114,7 @@ if (isset($_POST['newt1'])){
       }
     }
     echo " Category: $category\nTitle: $title\nTask-ID: $taskid\n";
-    $update->execute([$title,$category,$taskid]);
+    $update->execute([$title,$category,$date,$taskid]);
     header('location:tasklist.php?user='.$user);
   } catch (PDOException $e){
     $e->getMessage();
