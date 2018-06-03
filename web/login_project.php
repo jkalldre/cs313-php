@@ -21,6 +21,7 @@ if($dbtest) {
 }
 
 function existingUsername($user){
+  global $db;
   $dbq = "SELECT username FROM public.user";
   $query = $db->prepare($dbq);
   $query->execute();
