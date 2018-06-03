@@ -99,7 +99,7 @@ if (isset($_POST['newt1'])){
     $title = $_POST['title1'];
     $category = $_POST['category1'];
     $dbq3 = "UPDATE task
-            SET title=$title,
+            SET title='$title',
                 category_id=(SELECT category_id FROM category WHERE title='$category')
             WHERE task_id='$taskid'";
     $db->exec($dbq3);
