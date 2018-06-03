@@ -90,7 +90,7 @@ function insertCategory($category){
 }
 
 if($dbtest){
-  $sort = isset($_POST['sort']?$_POST['sort']:'category_id');
+  $sort = (isset($_POST['sort']) ? $_POST['sort'] : 'category_id';
   $dbq1 = "SELECT task_id,title, category_id, due_date
            FROM public.task
            WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)
