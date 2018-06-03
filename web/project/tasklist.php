@@ -103,11 +103,11 @@ if($dbtest){
   $categories = getCategories();
   // print_r($categories);
 }
-echo "date: $_POST['due_date']";
 if ($_POST['newt'] == 'process'){
   $title = $_POST['title'];
   $category = ucwords(strtolower($_POST['category']));
   $date = $_POST['due_date'];
+  echo "date: $date";
   // $date = NULL;
 
   if (!existingCategory($category)){
