@@ -94,7 +94,7 @@ if($dbtest){
   $dbq1 = "SELECT task_id,title, category_id, due_date
            FROM public.task
            WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)
-           ORDER BY '$sort'";
+           ORDER BY $sort";
   // alert($dbq1);
   $pwquery1 = $db->prepare($dbq1);
   // alert($user);
