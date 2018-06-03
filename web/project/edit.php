@@ -92,7 +92,7 @@ $dbq_main = "SELECT title,category_id FROM public.task WHERE task_id=?";
 $query_main = $db->prepare($dbq_main);
 $query_main->execute([$taskid]);
 $main = $query_main->fetchAll(PDO::FETCH_ASSOC);
-print_r($main);
+// print_r($main);
 
 if (isset($_POST['newt1'])){
   try{
@@ -102,6 +102,7 @@ if (isset($_POST['newt1'])){
              SET (title,category_id) =
                  ('$title',(SELECT category_id FROM category WHERE title='$category'))
              WHERE task_id=$taskid";
+    alert($dbq3);
     $db->exec($dbq3);
     header('location:tasklist.php?user='.$user);
   } catch (PDOException $e){
