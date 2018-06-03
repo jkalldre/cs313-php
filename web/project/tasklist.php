@@ -119,7 +119,7 @@ if ($_POST['newt'] == 'process'){
     ((SELECT user_id FROM public.user WHERE username='$user')
     ,'$title'
     ,(SELECT category_id FROM public.category WHERE title='$category')
-    ,'$date')";
+    ,$date)";
     $db->exec($query);
     header('location:tasklist.php?user='.$user);
     // alert("inset success!");
