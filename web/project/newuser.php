@@ -32,7 +32,7 @@ if(isset($_POST['newuser'])){
         $dbq = "INSERT INTO public.user (username, password)
         VALUES ('$user',crypt('$pass1', gen_salt('bf'))) ";
         $db->exec($dbq);
-        header("Location: tasklist.php?user=".$_POST['usrname']);
+        header("Location: ../login_project.php?user=".$_POST['usrname']);
 
       } catch (PDOException $e){
         $e->getMessage();
