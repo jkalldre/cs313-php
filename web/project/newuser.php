@@ -53,12 +53,12 @@ function alert($msg) {
 <html>
 <head>
   <title>Login</title>
-  <link rel="stylesheet" href="css/project.css">
-  <script src="js/project.js"></script>
+  <link rel="stylesheet" href="../css/project.css">
+  <script src="../js/project.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-  <div class="header">Task Manager - Login in</div>
+  <div class="header">Task Manager - New User</div>
   <form method="post" action="">
     <div class="imgsignin">
       <img src="img/task.png">
@@ -71,6 +71,9 @@ function alert($msg) {
 
       <lable for="usrpwd"><b>Password:</b></lable>
       <input class="signin" type="password" placeholder="Enter Password" name="usrpwd" required>
+
+      <lable for="usrpwd1"><b>Confirm Password:</b></lable>
+      <input class="signin" type="password" placeholder="Confirm Password" name="usrpwd1" required>
 
       <lable for="login"><span style="color:red"><?php echo $error?></span></lable>
       <button class="loginbtn" type="submit" name="login">Login</button>
