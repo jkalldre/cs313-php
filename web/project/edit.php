@@ -96,8 +96,8 @@ print_r($main);
 
 if (isset($_POST['newt1'])){
   try{
-    $title = $_POST['title'];
-    $category = $_POST['category'];
+    $title = $_POST['title1'];
+    $category = $_POST['category1'];
     $dbq3 = "UPDATE task
             SET title=$title
                 category_id=(SELECT category_id FROM category WHERE title='$category')
