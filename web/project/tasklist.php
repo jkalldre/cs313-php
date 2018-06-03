@@ -101,7 +101,7 @@ if ($_POST['newt'] == 'process'){
   alert("testing insert");
   $title = $_POST['title'];
   $category = ucwords(strtolower($_POST['category']));
-  $date = strtotime($_POST['date']);
+  $date = $_POST['due_date'];
   print_r($date);
   echo "Date: $date";
   if (!existingCategory($category)){
@@ -149,7 +149,7 @@ function alert($msg) {
             <tr><td><lable for="category"><b>Category:</b></lable></td>
               <td><input class="" type="text" placeholder="Category" name="category" ></td></tr>
               <tr><td><lable for="date"><b>Due Date:</b></lable></td>
-                <td><input type="date" name="date"></td></tr>
+                <td><input type="date" name="due_date"></td></tr>
 
 
               </table>
