@@ -104,6 +104,11 @@ if (isset($_POST['newt1'])){
              WHERE task_id=?";
     $db->prepare($dbq3);
     alert($dbq3);
+    for($i = 0; $i < count($categories);$i++){
+      if($category = $categories[$i]['title']){
+        $category = $i+1;
+      }
+    }
     $db->exec([$title,$categories[$category]['title'],$taskid]);
     header('location:tasklist.php?user='.$user);
   } catch (PDOException $e){
