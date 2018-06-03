@@ -99,11 +99,12 @@ if (isset($_POST['newt1'])){
     $title = $_POST['title1'];
     $category = $_POST['category1'];
     $dbq3 = "UPDATE task
-             SET (title,category_id) =
-                 ('$title',(SELECT category_id FROM category WHERE title='$category'))
-             WHERE task_id=$taskid";
+             SET title=?,
+                 category_id=?
+             WHERE task_id=?";
+    $db->prepare($dbq3);
     alert($dbq3);
-    $db->exec($dbq3);
+    $db->exec([$title,$categories[$category]['title'],$taskid]);
     header('location:tasklist.php?user='.$user);
   } catch (PDOException $e){
     $e->getMessage();
