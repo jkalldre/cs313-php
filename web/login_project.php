@@ -66,11 +66,11 @@ function alert($msg) {
 
     <div class="signin">
       <lable for="usrname"><b>Username:</b></lable>
-      <input class="signin" type="text" placeholder="Enter Username" name="usrname" required>
+      <input class="signin" type="text" placeholder="Enter Username" name="usrname" >
       <br />
 
       <lable for="usrpwd"><b>Password:</b></lable>
-      <input class="signin" type="password" placeholder="Enter Password" name="usrpwd" required>
+      <input class="signin" type="password" placeholder="Enter Password" name="usrpwd" >
 
       <lable for="login"><span style="color:red"><?php echo $error?></span></lable>
       <button class="loginbtn" type="submit" name="login">Login</button>
