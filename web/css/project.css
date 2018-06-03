@@ -55,6 +55,8 @@ button:hover {
 
 .logout {
     bottom: 0px;
+    position: fixed;
+    margin:0;
 }
 
 .right {
