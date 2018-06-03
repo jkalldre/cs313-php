@@ -152,38 +152,25 @@ function alert($msg) {
               </table>
               <button class="loginbtn" type="submit" name="newt" value="process">Add Task</button>
             </form>
-            <h2>Edit Task</h2>
-            <form method="post" action=<?php echo $userstr ?>>
-              <table class="">
-                <tr><td><lable for="title1"><b>Task Name:</b></lable></td>
-                  <td><input class="" type="text" placeholder="Task Name" name="title1" required></td></tr>
-                  <tr><td><lable for="category1"><b>Category:</b></lable></td>
-                    <td><input class="" type="text" placeholder="Category" name="category1" ></td></tr>
-                    <tr><td><lable for="date1"><b>Due Date:</b></lable></td>
-                      <td><input type="date" name="date1"/></td></tr>
 
+          </div>
+          <div class="column right">
+            <h2>Tasks</h2>
+            <?php
+            for($i = 0; $i < count($pw1); $i++){
+              $index = $userstr . "&id=" . $pw1[$i]['task_id'];
+              $edit = "edit.php?user=". $user . "&edit=". $pw1[$i]['task_id'];
+              echo "
+              <a href=$index>
+              <div class='task'><table><tr>
+              <td class='cl1'><a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a></td>
+              <td class='cl2'>{$pw1[$i]['title']}</td>
+              <td class='cl3'>{$categories[($pw1[$i]['category_id'])-1]['title']}</td>
+              </tr></table></div></a>";
+            }
+            ?>
+          </div>
+        </div>
 
-                    </table>
-                    <button class="loginbtn" type="submit" name="newt1" value="process">Edit Task</button>
-                  </form>
-                </div>
-                <div class="column right">
-                  <h2>Tasks</h2>
-                  <?php
-                  for($i = 0; $i < count($pw1); $i++){
-                    $index = $userstr . "&id=" . $pw1[$i]['task_id'];
-                    $edit = "edit.php?user=". $user . "&edit=". $pw1[$i]['task_id'];
-                    echo "
-                    <a href=$index>
-                    <div class='task'><table><tr>
-                    <td class='cl1'><a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a></td>
-                    <td class='cl2'>{$pw1[$i]['title']}</td>
-                    <td class='cl3'>{$categories[($pw1[$i]['category_id'])-1]['title']}</td>
-                    </tr></table></div></a>";
-                  }
-                  ?>
-                </div>
-              </div>
-
-            </body>
-            </html>
+      </body>
+      </html>
