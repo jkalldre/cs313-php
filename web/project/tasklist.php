@@ -171,7 +171,7 @@ function alert($msg) {
             ?>
           </div>
         </div>
-        <a href="../login_project.php"><button class="loginbtn logout" type="push" name="" value="process">Log Out</button></a>
+        <a class="logout" href="../login_project.php"><button class="loginbtn" type="push" name="" value="process">Log Out</button></a>
 
       </body>
       </html>

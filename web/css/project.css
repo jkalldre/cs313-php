@@ -53,6 +53,10 @@ button:hover {
   /* overflow-y: scroll; */
 }
 
+.logout {
+    bottom: 0px;
+}
+
 .right {
   background-color: var(--blue3);
   /* width:50%; */
