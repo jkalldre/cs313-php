@@ -11,7 +11,6 @@ if($dbtest) {
   $dbUser = $dbopts["user"];
   $dbPassword = $dbopts["pass"];
   $dbName = ltrim($dbopts["path"],'/');
-
   try
   {
     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
@@ -58,7 +57,6 @@ function getCategories() {
 
 function existingCategory($category){
   $categories = getCategories();
-  // print_r($categories);
   foreach($categories as $cat){
     if (strtolower($cat['title']) == strtolower($category))
     return true;
@@ -69,11 +67,8 @@ function existingCategory($category){
 function insertCategory($category){
   global $db;
   try{
-    // $query = $db->prepare($dbq);
     $dbq = "INSERT INTO category (title) VALUES ('$category')";
     $db->exec($dbq);
-    // $categories = $query->fetchAll(PDO::FETCH_ASSOC);
-    // return $categories;
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
@@ -82,42 +77,22 @@ function insertCategory($category){
 
 if($dbtest){
   $dbq1 = "SELECT task_id,title, category_id FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
-  // alert($dbq1);
   $pwquery1 = $db->prepare($dbq1);
-  // alert($user);
   $pwquery1->execute([$user]);
   $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
   $categories = getCategories();
-  // print_r($categories);
-}
-
-if ($_POST['newt'] == 'process'){
-  alert("testing insert");
-  $title = $_POST['title'];
-  $category = ucwords(strtolower($_POST['category']));
-  if (!existingCategory($category)){
-    insertCategory($category);
-    $categories = getCategories();
-  }
-  try {
-    $query = "INSERT INTO task (user_id,title,category_id) VALUES
-    ((SELECT user_id FROM public.user WHERE username='$user')
-    ,'$title'
-    ,(SELECT category_id FROM public.category WHERE title='$category'))";
-    $db->exec($query);
-    header('location:tasklist.php?user='.$user);
-    // alert("inset success!");
-  } catch (PDOException $e){
-    $e->getMessage();
-    echo $e;
-  }
-
 }
 
 function alert($msg) {
   echo "<script type='text/javascript'>alert('$msg');</script>";
 }
 
+$taskid = $_GET['edit'];
+$dbq_main = "SELECT title,category_id FROM public.task WHERE task_id=?";
+$query_main = $db->prepare($dbq_main);
+$query_main->execute([$taskid]);
+$main = $query_main->fetchAll(PDO::FETCH_ASSOC);
+print_r($main);
 ?>
 
 <html>
@@ -135,7 +110,7 @@ function alert($msg) {
       <form method="post" action=<?php echo $userstr ?>>
         <table class="">
           <tr><td><lable for="title1"><b>Task Name:</b></lable></td>
-            <td><input class="" type="text" placeholder="Task Name" name="title1" required></td></tr>
+            <td><input class="" type="text" placeholder="Task Name" name="title1" value required></td></tr>
             <tr><td><lable for="category1"><b>Category:</b></lable></td>
               <td><input class="" type="text" placeholder="Category" name="category1" ></td></tr>
               <tr><td><lable for="date1"><b>Due Date:</b></lable></td>
