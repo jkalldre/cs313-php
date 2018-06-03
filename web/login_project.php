@@ -66,15 +66,15 @@ function alert($msg) {
 
     <div class="signin">
       <lable for="usrname"><b>Username:</b></lable>
-      <input class="signin" type="text" placeholder="Enter Username" name="usrname" >
+      <input class="signin" type="text" placeholder="Enter Username" name="usrname" required>
       <br />
 
       <lable for="usrpwd"><b>Password:</b></lable>
-      <input class="signin" type="password" placeholder="Enter Password" name="usrpwd" >
+      <input class="signin" type="password" placeholder="Enter Password" name="usrpwd" required>
 
       <lable for="login"><span style="color:red"><?php echo $error?></span></lable>
       <button class="loginbtn" type="submit" name="login">Login</button>
-      <a href="project/newuser.php"><button class="loginbtn" type="push" name="">Create User</button></a>
+      <a class="loginbtn" href="project/newuser.php">Create User</a>
 
     </div>
   </form>
