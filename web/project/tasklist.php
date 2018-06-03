@@ -107,7 +107,7 @@ if($dbtest){
 if ($_POST['newt'] == 'process'){
   $title = $_POST['title'];
   $category = ucwords(strtolower($_POST['category']));
-  $date = (isset($_POST['due_date'])) ? $_POST['due_date'] : NULL;
+  $date = $_POST['due_date'];
   // $date = NULL;
 
   if (!existingCategory($category)){
@@ -115,12 +115,20 @@ if ($_POST['newt'] == 'process'){
     $categories = getCategories();
   }
   try {
-    $query = "INSERT INTO task (user_id,title,category_id,due_date) VALUES
-    ((SELECT user_id FROM public.user WHERE username='$user')
-    ,'$title'
-    ,(SELECT category_id FROM public.category WHERE title='$category')
-    ,$date)";
-    $db->exec($query);
+    if (isset($_POST['date'])){
+      $query = "INSERT INTO task (user_id,title,category_id,due_date) VALUES
+      ((SELECT user_id FROM public.user WHERE username='$user')
+      ,'$title'
+      ,(SELECT category_id FROM public.category WHERE title='$category')
+      ,'$date')";
+      $db->exec($query);
+    } else {
+      $query = "INSERT INTO task (user_id,title,category_id) VALUES
+      ((SELECT user_id FROM public.user WHERE username='$user')
+      ,'$title'
+      ,(SELECT category_id FROM public.category WHERE title='$category'))";
+      $db->exec($query);
+    }
     header('location:tasklist.php?user='.$user);
     // alert("inset success!");
   } catch (PDOException $e){
@@ -166,39 +174,39 @@ function alert($msg) {
           </div>
           <div class="column right">
             <h2>Tasks</h2>
-              <form method="post">
-                <lable for='sort'><b>Filter:</b></lable>
-                <select name="sort" onchange="this.form.submit()">
-                  <option value=""></option>
-                  <option value="title">Title</option>
-                  <option value="category_id">Category</option>
-                  <option value="due_date">Due Date</option>
-                </select></form>
-                <?php
+            <form method="post">
+              <lable for='sort'><b>Filter:</b></lable>
+              <select name="sort" onchange="this.form.submit()">
+                <option value=""></option>
+                <option value="title">Title</option>
+                <option value="category_id">Category</option>
+                <option value="due_date">Due Date</option>
+              </select></form>
+              <?php
+              echo "
+              <div class='task'><table><tr>
+              <td class='cl1'></td>
+              <td class='cl2'>Task Title</td>
+              <td class='cl3'>Category</td>
+              <td class='cl4'>Due Date</td>
+              </tr></table></div>";
+
+              for($i = 0; $i < count($pw1); $i++){
+                $index = $userstr . "&id=" . $pw1[$i]['task_id'];
+                $edit = "edit.php?user=". $user . "&edit=". $pw1[$i]['task_id'];
                 echo "
+                <a href=$index>
                 <div class='task'><table><tr>
-                <td class='cl1'></td>
-                <td class='cl2'>Task Title</td>
-                <td class='cl3'>Category</td>
-                <td class='cl4'>Due Date</td>
-                </tr></table></div>";
-
-                for($i = 0; $i < count($pw1); $i++){
-                  $index = $userstr . "&id=" . $pw1[$i]['task_id'];
-                  $edit = "edit.php?user=". $user . "&edit=". $pw1[$i]['task_id'];
-                  echo "
-                  <a href=$index>
-                  <div class='task'><table><tr>
-                  <td class='cl1'><a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a></td>
-                  <td class='cl2'>{$pw1[$i]['title']}</td>
-                  <td class='cl3'>{$categories[($pw1[$i]['category_id'])-1]['title']}</td>
-                  <td class='cl4'>{$pw1[$i]['due_date']}</td>
-                  </tr></table></div></a>";
-                }
-                ?>
-              </div>
+                <td class='cl1'><a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a></td>
+                <td class='cl2'>{$pw1[$i]['title']}</td>
+                <td class='cl3'>{$categories[($pw1[$i]['category_id'])-1]['title']}</td>
+                <td class='cl4'>{$pw1[$i]['due_date']}</td>
+                </tr></table></div></a>";
+              }
+              ?>
             </div>
-            <a class="" href="../login_project.php"><button class="loginbtn logout" type="push" name="" value="process">Log Out</button></a>
+          </div>
+          <a class="" href="../login_project.php"><button class="loginbtn logout" type="push" name="" value="process">Log Out</button></a>
 
-          </body>
-          </html>
+        </body>
+        </html>
