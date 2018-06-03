@@ -103,7 +103,7 @@ if($dbtest){
   $categories = getCategories();
   // print_r($categories);
 }
-if ($_POST['newt'] == Date()){
+if ($_POST['newt'] == 'process'){
   $title = $_POST['title'];
   $category = ucwords(strtolower($_POST['category']));
   $date = $_POST['due_date'];
@@ -115,7 +115,7 @@ if ($_POST['newt'] == Date()){
     $categories = getCategories();
   }
   try {
-    if ($_POST['due_date'] == NULL){
+    if (!empty($_POST['due_date'])) {
       $query = "INSERT INTO task (user_id,title,category_id,due_date) VALUES
       ((SELECT user_id FROM public.user WHERE username='$user')
       ,'$title'
