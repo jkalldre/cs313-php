@@ -25,17 +25,20 @@ if(isset($_POST['login'])){
   if($dbtest){
     $dbq1 = "SELECT password FROM public.user WHERE username=?";
     $dbq2 = "SELECT crypt(?,?)";
+    $dbq3 = "SELECT username FROM public.user";
 
     $pwquery1 = $db->prepare($dbq1);
     $pwquery1->execute([$_POST['usrname']]);
     $pw1 = $pwquery1->fetch();
-    // alert("Executed q1");
 
     $pwquery2 = $db->prepare($dbq2);
     $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
     $pw2 = $pwquery2->fetch();
-    // alert("Executed q2");
 
+    $query = $db->prepare($dbq3);
+    $query->execute();
+    $users = $query->fetchAll(PDO::FETCH_ASSOC);
+    print_r($users);
     if($pw2[0] == $pw1[0]){
       $_SESSION['user'] = $_POST['usrname'];
       header("Location: https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php"."?user=".$_POST['usrname']);
