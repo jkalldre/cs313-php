@@ -89,7 +89,7 @@ function alert($msg) {
 }
 
 $taskid = $_GET['edit'];
-$dbq_main = "SELECT title,category_id FROM public.task WHERE task_id=?";
+$dbq_main = "SELECT title,category_id,due_date FROM public.task WHERE task_id=?";
 $query_main = $db->prepare($dbq_main);
 $query_main->execute([$taskid]);
 $main = $query_main->fetchAll(PDO::FETCH_ASSOC);
@@ -141,7 +141,7 @@ if (isset($_POST['newt1'])){
             <tr><td><lable for="category1"><b>Category:</b></lable></td>
               <td><input class="" type="text" placeholder="Category" name="category1" value="<?php echo $categories[$main[0]['category_id']-1]['title']?>"></td></tr>
               <tr><td><lable for="date1"><b>Due Date:</b></lable></td>
-                <td><input type="date" name="date1"/></td></tr>
+                <td><input type="date" name="date1" value="<?php echo $categories[$main[0]['due_date']?>"></td></tr>
               </table>
               <button class="loginbtn" type="submit" name="newt1" value="process">Edit Task</button>
             </form>
