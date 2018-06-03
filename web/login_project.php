@@ -74,7 +74,7 @@ function alert($msg) {
 
       <lable for="login"><span style="color:red"><?php echo $error?></span></lable>
       <button class="loginbtn" type="submit" name="login">Login</button>
-      <a href="../login_project.php"><button class="loginbtn" type="push" name="">Create User</button></a>
+      <a href="project/newuser.php"><button class="loginbtn" type="push" name="">Create User</button></a>
 
     </div>
   </form>
