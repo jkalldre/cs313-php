@@ -107,7 +107,7 @@ if($dbtest){
 if ($_POST['newt'] == 'process'){
   $title = $_POST['title'];
   $category = ucwords(strtolower($_POST['category']));
-  $date = $_POST['due_date'];
+  $date = (isset($_POST['due_date'])) ? $_POST['due_date'] : NULL;
 
   if (!existingCategory($category)){
     insertCategory($category);
