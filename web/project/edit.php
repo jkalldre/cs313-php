@@ -104,15 +104,15 @@ if (isset($_POST['newt1'])){
              WHERE task_id=?";
     $db->prepare($dbq3);
     alert($dbq3);
-    echo "Init Category: $category";
+    // echo "Init Category: $category";
     for($i = 0; $i < count($categories);$i++){
       if($category == $categories[$i]['title']){
         $category = $i+1;
       }
     }
-    echo "Category: $category";
+    echo " Category: $category\nTitle: $title\nTask-ID: $taskid\n";
     $db->exec([$title,$categories[$category]['title'],$taskid]);
-    // header('location:tasklist.php?user='.$user);
+    header('location:tasklist.php?user='.$user);
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
