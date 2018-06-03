@@ -1,7 +1,8 @@
 <?php
 session_start();
 $user = $_GET['user'];
-$userstr = 'edit.php?user=' . $user;
+$taskid = $_GET['edit'];
+$userstr = 'edit.php?user=' . $user .'&edit='.$taskid;
 $dbtest = true;
 if($dbtest) {
   $dbUrl = getenv('DATABASE_URL');
