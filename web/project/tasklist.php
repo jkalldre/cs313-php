@@ -92,9 +92,9 @@ function insertCategory($category){
 if($dbtest){
   $sort = (isset($_POST['sort'])) ? $_POST['sort'] : 'category_id';
   $dbq1 = "SELECT task_id,title, category_id, due_date
-           FROM public.task
-           WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)
-           ORDER BY $sort";
+  FROM public.task
+  WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)
+  ORDER BY $sort";
   // alert($dbq1);
   $pwquery1 = $db->prepare($dbq1);
   // alert($user);
@@ -168,35 +168,36 @@ function alert($msg) {
             <h2>Tasks - Filter:
               <form method="post">
                 <select name="sort" onchange="this.form.submit()">
-                <option value="title">Title</option>
-                <option value="category_id">Category</option>
-                <option value="due_date">Due Date</option>
-              </select></form></h2>
-            <?php
-            echo "
-            <div class='task'><table><tr>
-            <td class='cl1'></td>
-            <td class='cl2'>Task Title</td>
-            <td class='cl3'>Category</td>
-            <td class='cl4'>Due Date</td>
-            </tr></table></div>";
+                  <option value=""></option>
+                  <option value="title">Title</option>
+                  <option value="category_id">Category</option>
+                  <option value="due_date">Due Date</option>
+                </select></form></h2>
+                <?php
+                echo "
+                <div class='task'><table><tr>
+                <td class='cl1'></td>
+                <td class='cl2'>Task Title</td>
+                <td class='cl3'>Category</td>
+                <td class='cl4'>Due Date</td>
+                </tr></table></div>";
 
-            for($i = 0; $i < count($pw1); $i++){
-              $index = $userstr . "&id=" . $pw1[$i]['task_id'];
-              $edit = "edit.php?user=". $user . "&edit=". $pw1[$i]['task_id'];
-              echo "
-              <a href=$index>
-              <div class='task'><table><tr>
-              <td class='cl1'><a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a></td>
-              <td class='cl2'>{$pw1[$i]['title']}</td>
-              <td class='cl3'>{$categories[($pw1[$i]['category_id'])-1]['title']}</td>
-              <td class='cl4'>{$pw1[$i]['due_date']}</td>
-              </tr></table></div></a>";
-            }
-            ?>
-          </div>
-        </div>
-        <a class="" href="../login_project.php"><button class="loginbtn logout" type="push" name="" value="process">Log Out</button></a>
+                for($i = 0; $i < count($pw1); $i++){
+                  $index = $userstr . "&id=" . $pw1[$i]['task_id'];
+                  $edit = "edit.php?user=". $user . "&edit=". $pw1[$i]['task_id'];
+                  echo "
+                  <a href=$index>
+                  <div class='task'><table><tr>
+                  <td class='cl1'><a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a></td>
+                  <td class='cl2'>{$pw1[$i]['title']}</td>
+                  <td class='cl3'>{$categories[($pw1[$i]['category_id'])-1]['title']}</td>
+                  <td class='cl4'>{$pw1[$i]['due_date']}</td>
+                  </tr></table></div></a>";
+                }
+                ?>
+              </div>
+            </div>
+            <a class="" href="../login_project.php"><button class="loginbtn logout" type="push" name="" value="process">Log Out</button></a>
 
-      </body>
-      </html>
+          </body>
+          </html>
