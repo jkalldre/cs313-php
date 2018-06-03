@@ -108,10 +108,11 @@ if ($_POST['newt'] == 'process'){
     $categories = getCategories();
   }
   try {
-    $query = "INSERT INTO task (user_id,title,category_id) VALUES
+    $query = "INSERT INTO task (user_id,title,category_id,due_date) VALUES
     ((SELECT user_id FROM public.user WHERE username='$user')
     ,'$title'
-    ,(SELECT category_id FROM public.category WHERE title='$category'))";
+    ,(SELECT category_id FROM public.category WHERE title='$category'))
+    ,'$date'";
     $db->exec($query);
     header('location:tasklist.php?user='.$user);
     // alert("inset success!");
