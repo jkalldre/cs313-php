@@ -117,15 +117,16 @@ if ($_POST['newt'] == 'process'){
     $e->getMessage();
     echo $e;
   }
-  // alert($query);
-  // // // if(isset($_POST['date']))
-  // // // $query = 'INSERT INTO public.task (user_id,title,category,date)';
-  // $query = $query . "VALUES((SELECT user_id FROM public.user WHERE username='$user'),'$_POST['title']',2)";
-  // alert($query);
-  // $prepared = $db->prepare($query);
-  // $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
+
   $_POST['newt'] = 'done';
 }
+
+if (isset($_POST['newt1'])){
+  echo(loadEdit($_GET['edit']));
+
+  header('location:tasklist.php?user='.$user);
+}
+
 
 function alert($msg) {
   echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -170,7 +171,7 @@ function alert($msg) {
 
 
                     </table>
-                    <button class="loginbtn" type="submit" name="newt" value="process">Add Task</button>
+                    <button class="loginbtn" type="submit" name="newt1" value="process">Edit Task</button>
                   </form>
                 </div>
                 <div class="column right">
