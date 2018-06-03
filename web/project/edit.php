@@ -1,7 +1,7 @@
 <?php
 session_start();
 $user = $_GET['user'];
-$userstr = 'tasklist.php?user=' . $user;
+$userstr = 'edit.php?user=' . $user;
 $dbtest = true;
 if($dbtest) {
   $dbUrl = getenv('DATABASE_URL');
