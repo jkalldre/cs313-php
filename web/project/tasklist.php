@@ -87,7 +87,7 @@ function insertCategory($category){
 }
 
 if($dbtest){
-  $dbq1 = "SELECT task_id,title, category_id FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
+  $dbq1 = "SELECT task_id,title, category_id, due_date FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
   // alert($dbq1);
   $pwquery1 = $db->prepare($dbq1);
   // alert($user);
@@ -101,6 +101,7 @@ if ($_POST['newt'] == 'process'){
   alert("testing insert");
   $title = $_POST['title'];
   $category = ucwords(strtolower($_POST['category']));
+  $date = $_POST['date'];
   if (!existingCategory($category)){
     insertCategory($category);
     $categories = getCategories();
@@ -166,6 +167,7 @@ function alert($msg) {
               <td class='cl1'><a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a></td>
               <td class='cl2'>{$pw1[$i]['title']}</td>
               <td class='cl3'>{$categories[($pw1[$i]['category_id'])-1]['title']}</td>
+              <td class='cl4'>{$pw1[$i]['due_date']}</td>
               </tr></table></div></a>";
             }
             ?>

@@ -36,8 +36,13 @@ button:hover {
 }
 
 .cl3 {
-  width: 50%;
+  width: 25%;
 }
+
+.cl2 {
+  width: 25%;
+}
+
 .column {
   float:left;
   padding:0px;

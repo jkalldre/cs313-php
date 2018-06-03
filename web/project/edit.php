@@ -148,6 +148,7 @@ if (isset($_POST['newt1'])){
           </div>
 
         </div>
+        <a class="" href="../login_project.php"><button class="loginbtn logout" type="push" name="" value="process">Log Out</button></a>
 
       </body>
       </html>
