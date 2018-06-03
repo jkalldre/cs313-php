@@ -23,7 +23,7 @@ if(isset($_POST['newuser'])){
   // if(!isset($db)) alert("DB IS NOT SET");
   // else alert("db is set");
   if($dbtest){
-    $user = $_POST['newuser'];
+    $user = $_POST['usrname'];
     $pass1 = $_POST['usrpwd'];
     $pass2 = $_POST['usrpwd1'];
     if($pass1 == $pass2){
@@ -75,7 +75,7 @@ function alert($msg) {
 
       <lable for="newuser"><span style="color:red"><?php echo $error?></span></lable>
       <button class="loginbtn" type="submit" name="newuser">Create User</button>
-      <a href="../login_project.php"><button class="loginbtn logout" type="push" name="login">Login</button></a>
+      <a href="../login_project.php"><button class="loginbtn logout" type="push" name="">Login</button></a>
     </div>
   </form>
 </body>
