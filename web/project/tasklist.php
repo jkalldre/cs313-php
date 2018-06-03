@@ -166,11 +166,12 @@ function alert($msg) {
           </div>
           <div class="column right">
             <h2>Tasks - Filter:
-              <select name="sort" onchange="this.form.submit()">
+              <form method="post">
+                <select name="sort" onchange="this.form.submit()">
                 <option value="title">Title</option>
                 <option value="category_id">Category</option>
                 <option value="due_date">Due Date</option>
-              </select></h2>
+              </select></form></h2>
             <?php
             echo "
             <div class='task'><table><tr>
