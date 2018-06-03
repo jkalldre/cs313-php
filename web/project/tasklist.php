@@ -115,7 +115,7 @@ if ($_POST['newt'] == 'process'){
     $categories = getCategories();
   }
   try {
-    if (isset($_POST['due_date'])){
+    if ($_POST['due_date'] == NULL){
       $query = "INSERT INTO task (user_id,title,category_id,due_date) VALUES
       ((SELECT user_id FROM public.user WHERE username='$user')
       ,'$title'

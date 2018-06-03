@@ -93,7 +93,6 @@ $dbq_main = "SELECT title,category_id,due_date FROM public.task WHERE task_id=?"
 $query_main = $db->prepare($dbq_main);
 $query_main->execute([$taskid]);
 $main = $query_main->fetchAll(PDO::FETCH_ASSOC);
-// print_r($main);
 
 if (isset($_POST['newt1'])){
   try{
@@ -107,7 +106,6 @@ if (isset($_POST['newt1'])){
              WHERE task_id=?";
     $update = $db->prepare($dbq3);
     alert($dbq3);
-    // echo "Init Category: $category";
     for($i = 0; $i < count($categories);$i++){
       if($category == $categories[$i]['title']){
         $category = $i+1;
