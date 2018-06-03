@@ -149,7 +149,7 @@ function alert($msg) {
             <tr><td><lable for="category"><b>Category:</b></lable></td>
               <td><input class="" type="text" placeholder="Category" name="category" ></td></tr>
               <tr><td><lable for="date"><b>Due Date:</b></lable></td>
-                <td><input type="date" name="date"/></td></tr>
+                <td><input type="date" name="date"></td></tr>
 
 
               </table>
