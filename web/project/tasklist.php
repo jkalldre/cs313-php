@@ -102,7 +102,7 @@ if ($_POST['newt'] == 'process'){
   $title = $_POST['title'];
   $category = ucwords(strtolower($_POST['category']));
   $date = $_POST['date'];
-  echo $date;
+  echo "Date: $date";
   if (!existingCategory($category)){
     insertCategory($category);
     $categories = getCategories();
