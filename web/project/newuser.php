@@ -23,24 +23,21 @@ if(isset($_POST['newuser'])){
   // if(!isset($db)) alert("DB IS NOT SET");
   // else alert("db is set");
   if($dbtest){
+    $user = $_POST['newuser'];
     $pass1 = $_POST['usrpwd'];
     $pass2 = $_POST['usrpwd1'];
     if($pass1 == $pass2){
-    // $dbq1 = "SELECT password FROM public.user WHERE username=?";
-    // $dbq2 = "SELECT crypt(?,?)";
-    //
-    // $pwquery1 = $db->prepare($dbq1);
-    // $pwquery1->execute([$_POST['usrname']]);
-    // $pw1 = $pwquery1->fetch();
-    // // alert("Executed q1");
-    //
-    // $pwquery2 = $db->prepare($dbq2);
-    // $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
-    // $pw2 = $pwquery2->fetch();
-    // alert("Executed q2");
+      global $db;
+      try{
+        $dbq = "INSERT INTO user (username, password)
+        VALUES ('$user',crypt('$pass1', gen_salt('bf'))) ";
+        $db->exec($dbq);
+        header("Location: tasklist.php?user=".$_POST['usrname']);
 
-      $_SESSION['user'] = $_POST['usrname'];
-      header("Location: https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php"."?user=".$_POST['usrname']);
+      } catch (PDOException $e){
+        $e->getMessage();
+        echo $e;
+      }
     }
     else $error = "Passwords don't match!";
   }
