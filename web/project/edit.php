@@ -113,7 +113,7 @@ if (isset($_POST['newt1'])){
     }
     echo " Category: $category\nTitle: $title\nTask-ID: $taskid\n";
     $update->execute([$title,$category,$taskid]);
-    // header('location:tasklist.php?user='.$user);
+    header('location:tasklist.php?user='.$user);
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
