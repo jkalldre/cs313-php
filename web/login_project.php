@@ -19,13 +19,25 @@ if($dbtest) {
     die();
   }
 }
+
+function existingUsername($user){
+  $dbq = "SELECT username FROM public.user";
+  $query = $db->prepare($dbq3);
+  $query->execute();
+  $users = $query->fetchAll(PDO::FETCH_ASSOC);
+  for($i = 0; $i < count($users); $i++){
+    if ($user == $users[$i]['username'])
+      return true;
+  }
+  return false;
+}
+
 if(isset($_POST['login'])){
   // if(!isset($db)) alert("DB IS NOT SET");
   // else alert("db is set");
   if($dbtest){
     $dbq1 = "SELECT password FROM public.user WHERE username=?";
     $dbq2 = "SELECT crypt(?,?)";
-    $dbq3 = "SELECT username FROM public.user";
 
     $pwquery1 = $db->prepare($dbq1);
     $pwquery1->execute([$_POST['usrname']]);
@@ -35,11 +47,9 @@ if(isset($_POST['login'])){
     $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
     $pw2 = $pwquery2->fetch();
 
-    $query = $db->prepare($dbq3);
-    $query->execute();
-    $users = $query->fetchAll(PDO::FETCH_ASSOC);
+
     print_r($users);
-    if($pw2[0] == $pw1[0]){
+    if($pw2[0] == $pw1[0] && existingUsername($_POST['usrname'])){
       $_SESSION['user'] = $_POST['usrname'];
       // header("Location: https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php"."?user=".$_POST['usrname']);
       die();
