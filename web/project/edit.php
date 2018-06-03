@@ -112,7 +112,7 @@ print_r($categories);
           <tr><td><lable for="title1"><b>Task Name:</b></lable></td>
             <td><input class="" type="text" placeholder="Task Name" name="title1" value=<?php echo $main[0]['title']?> required></td></tr>
             <tr><td><lable for="category1"><b>Category:</b></lable></td>
-              <td><input class="" type="text" placeholder="Category" name="category1" value=<?php echo $categories[$main[0]['category_id']-1]?>></td></tr>
+              <td><input class="" type="text" placeholder="Category" name="category1" value=<?php echo $categories[$main[0]['category_id']-1]['title']?>></td></tr>
               <tr><td><lable for="date1"><b>Due Date:</b></lable></td>
                 <td><input type="date" name="date1"/></td></tr>
               </table>
