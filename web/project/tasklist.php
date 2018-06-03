@@ -105,7 +105,6 @@ if($dbtest){
 }
 
 if ($_POST['newt'] == 'process'){
-  alert("testing insert");
   $title = $_POST['title'];
   $category = ucwords(strtolower($_POST['category']));
   $date = $_POST['due_date'];
@@ -121,7 +120,7 @@ if ($_POST['newt'] == 'process'){
     ,(SELECT category_id FROM public.category WHERE title='$category')
     ,'$date')";
     $db->exec($query);
-    // header('location:tasklist.php?user='.$user);
+    header('location:tasklist.php?user='.$user);
     // alert("inset success!");
   } catch (PDOException $e){
     $e->getMessage();
@@ -165,14 +164,15 @@ function alert($msg) {
 
           </div>
           <div class="column right">
-            <h2>Tasks - Filter:
+            <h2>Tasks</h2>
               <form method="post">
+                <lable for='sort'><b>Filter:</b></lable>
                 <select name="sort" onchange="this.form.submit()">
                   <option value=""></option>
                   <option value="title">Title</option>
                   <option value="category_id">Category</option>
                   <option value="due_date">Due Date</option>
-                </select></form></h2>
+                </select></form>
                 <?php
                 echo "
                 <div class='task'><table><tr>
