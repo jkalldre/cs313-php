@@ -24,7 +24,7 @@ function existingUsername($user){
   global $db;
   $dbq = "SELECT username FROM public.user";
   $query = $db->prepare($dbq);
-  $query->execute();
+  $query->execute(); 
   $users = $query->fetchAll(PDO::FETCH_ASSOC);
   for($i = 0; $i < count($users); $i++){
     if ($user == $users[$i]['username'])
