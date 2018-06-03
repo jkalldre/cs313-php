@@ -57,6 +57,7 @@ button:hover {
     bottom: 0px;
     position: fixed;
     margin:0;
+    width:100%;
 }
 
 .right {
