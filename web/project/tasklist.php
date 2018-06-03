@@ -141,7 +141,7 @@ function alert($msg) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-  <div class="header">Task Manager</div>
+  <div class="header">Task Manager <select><option value="title">Title</option> </select></div>
   <div class="row">
     <div class= "column left">
       <h2>New Task</h2>
