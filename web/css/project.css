@@ -53,11 +53,19 @@ button:hover {
   /* overflow-y: scroll; */
 }
 
+.loginbtn {
+  background-color: lightgreen;
+  width: 100%;
+  padding:10px;
+  margin:10px 0 0 0;
+}
+
 .logout {
     bottom: 0px;
     position: fixed;
     margin:0;
     width:100%;
+    background-color: lightgray;
 }
 
 .right {
@@ -101,12 +109,7 @@ input.signin {
   margin: 5px;
 }
 
-.loginbtn {
-  background-color: lightgreen;
-  width: 100%;
-  padding:10px;
-  margin:10px 0 0 0;
-}
+
 
 ul.task {
   list-style-type: none;
