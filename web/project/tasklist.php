@@ -158,6 +158,14 @@ function alert($msg) {
           <div class="column right">
             <h2>Tasks</h2>
             <?php
+            echo "
+            <div class='task'><table><tr>
+            <td class='cl1'></td>
+            <td class='cl2'>Task Title</td>
+            <td class='cl3'>Category</td>
+            <td class='cl4'>Due Date</td>
+            </tr></table></div>";
+
             for($i = 0; $i < count($pw1); $i++){
               $index = $userstr . "&id=" . $pw1[$i]['task_id'];
               $edit = "edit.php?user=". $user . "&edit=". $pw1[$i]['task_id'];
