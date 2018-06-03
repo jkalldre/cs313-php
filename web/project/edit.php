@@ -104,6 +104,7 @@ if (isset($_POST['newt1'])){
              WHERE task_id=?";
     $db->prepare($dbq3);
     alert($dbq3);
+    echo "Init Category: $category";
     for($i = 0; $i < count($categories);$i++){
       if($category = $categories[$i]['title']){
         $category = $i+1;
