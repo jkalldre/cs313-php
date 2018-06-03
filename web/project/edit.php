@@ -15,7 +15,6 @@ if($dbtest) {
   try
   {
     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-    // $db = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;");//, 'postgres', 'Sousheldon66');
   }
   catch (PDOException $ex)
   {
@@ -28,14 +27,11 @@ function killTask($index){
   global $db;
   global $user;
   try{
-    // $query = $db->prepare($dbq);
     $dbq = "DELETE FROM task WHERE task_id=$index";
     $db->exec($dbq);
     $str = "location:tasklist.php?user=".$user;
     alert($str);
     header($str);
-    // $categories = $query->fetchAll(PDO::FETCH_ASSOC);
-    // return $categories;
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
@@ -46,8 +42,6 @@ if (isset($_GET['id'])){
   killTask($_GET['id']);
 }
 
-// if(!isset($db)) alert("DB IS NOT SET");
-// else alert("db is set");
 function getCategories() {
   global $db;
   $dbq = "SELECT title, category_id FROM public.category";
@@ -118,7 +112,6 @@ if ($_POST['newt'] == 'process'){
     echo $e;
   }
 
-  $_POST['newt'] = 'done';
 }
 
 function alert($msg) {
@@ -129,61 +122,30 @@ function alert($msg) {
 
 <html>
 <head>
-  <title>Task Manager</title>
+  <title>Task Editor</title>
   <link rel="stylesheet" href="../css/project.css">
   <script src="../js/project.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-  <div class="header">Task Manager</div>
+  <div class="header">Task Editor</div>
   <div class="row">
     <div class= "column left">
-      <h2>New Task</h2>
+      <h2>Edit Task</h2>
       <form method="post" action=<?php echo $userstr ?>>
         <table class="">
-          <tr><td><lable for="title"><b>Task Name:</b></lable></td>
-            <td><input class="" type="text" placeholder="Task Name" name="title" required></td></tr>
-            <tr><td><lable for="category"><b>Category:</b></lable></td>
-              <td><input class="" type="text" placeholder="Category" name="category" ></td></tr>
-              <tr><td><lable for="date"><b>Due Date:</b></lable></td>
-                <td><input type="date" name="date"/></td></tr>
-
-
+          <tr><td><lable for="title1"><b>Task Name:</b></lable></td>
+            <td><input class="" type="text" placeholder="Task Name" name="title1" required></td></tr>
+            <tr><td><lable for="category1"><b>Category:</b></lable></td>
+              <td><input class="" type="text" placeholder="Category" name="category1" ></td></tr>
+              <tr><td><lable for="date1"><b>Due Date:</b></lable></td>
+                <td><input type="date" name="date1"/></td></tr>
               </table>
-              <button class="loginbtn" type="submit" name="newt" value="process">Add Task</button>
+              <button class="loginbtn" type="submit" name="newt1" value="process">Edit Task</button>
             </form>
-            <h2>Edit Task</h2>
-            <form method="post" action=<?php echo $userstr ?>>
-              <table class="">
-                <tr><td><lable for="title1"><b>Task Name:</b></lable></td>
-                  <td><input class="" type="text" placeholder="Task Name" name="title1" required></td></tr>
-                  <tr><td><lable for="category1"><b>Category:</b></lable></td>
-                    <td><input class="" type="text" placeholder="Category" name="category1" ></td></tr>
-                    <tr><td><lable for="date1"><b>Due Date:</b></lable></td>
-                      <td><input type="date" name="date1"/></td></tr>
+          </div>
 
+        </div>
 
-                    </table>
-                    <button class="loginbtn" type="submit" name="newt1" value="process">Edit Task</button>
-                  </form>
-                </div>
-                <div class="column right">
-                  <h2>Tasks</h2>
-                  <?php
-                  for($i = 0; $i < count($pw1); $i++){
-                    $index = $userstr . "&id=" . $pw1[$i]['task_id'];
-                    $edit = "edit.php?user=". $user . "&edit=". $pw1[$i]['task_id'];
-                    echo "
-                    <a href=$index>
-                    <div class='task'><table><tr>
-                    <td class='cl1'><a href=$edit><img src='../img/threedot.jpg' height='30px' width='10px'></a></td>
-                    <td class='cl2'>{$pw1[$i]['title']}</td>
-                    <td class='cl3'>{$categories[($pw1[$i]['category_id'])-1]['title']}</td>
-                    </tr></table></div></a>";
-                  }
-                  ?>
-                </div>
-              </div>
-
-            </body>
-            </html>
+      </body>
+      </html>
