@@ -29,7 +29,7 @@ if(isset($_POST['newuser'])){
     if($pass1 == $pass2){
       global $db;
       try{
-        $dbq = "INSERT INTO user (username, password)
+        $dbq = "INSERT INTO public.user (username, password)
         VALUES ('$user',crypt('$pass1', gen_salt('bf'))) ";
         $db->exec($dbq);
         header("Location: tasklist.php?user=".$_POST['usrname']);
