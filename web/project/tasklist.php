@@ -90,7 +90,11 @@ function insertCategory($category){
 }
 
 if($dbtest){
-  $dbq1 = "SELECT task_id,title, category_id, due_date FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
+  $sort = isset($_POST['sort']?$_POST['sort']:'category_id');
+  $dbq1 = "SELECT task_id,title, category_id, due_date
+           FROM public.task
+           WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)
+           ORDER BY '$sort'";
   // alert($dbq1);
   $pwquery1 = $db->prepare($dbq1);
   // alert($user);
@@ -161,7 +165,12 @@ function alert($msg) {
 
           </div>
           <div class="column right">
-            <h2>Tasks <select><option value="title">Title</option> </select></h2>
+            <h2>Tasks - Filter:
+              <select name="sort" onchange="this.form.submit()">
+                <option value="title">Title</option>
+                <option value="category_id">Category</option>
+                <option value="due_date">Due Date</option>
+              </select></h2>
             <?php
             echo "
             <div class='task'><table><tr>
