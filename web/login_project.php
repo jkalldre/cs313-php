@@ -22,7 +22,7 @@ if($dbtest) {
 
 function existingUsername($user){
   $dbq = "SELECT username FROM public.user";
-  $query = $db->prepare($dbq3);
+  $query = $db->prepare($dbq);
   $query->execute();
   $users = $query->fetchAll(PDO::FETCH_ASSOC);
   for($i = 0; $i < count($users); $i++){

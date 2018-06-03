@@ -1,1 +1,100 @@
-Terminate batch job (Y/N)? 
+2018-06-03T04:11:20.883510+00:00 heroku[router]: at=info method=POST path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=c310fd49-81ad-4fe2-b4a5-df55ef606679 fwd="192.225.186.8" dyno=web.1 connect=1ms service=27ms status=302 bytes=391 protocol=https
+2018-06-03T04:11:21.187831+00:00 heroku[router]: at=info method=GET path="/css/project.css" host=ancient-scrubland-36003.herokuapp.com request_id=0f3f3be8-44b5-4abf-a94a-d68f1bbf13b4 fwd="192.225.186.8" dyno=web.1 connect=1ms service=3ms status=304 bytes=128 protocol=https
+2018-06-03T04:11:21.188330+00:00 app[web.1]: 10.37.154.186 - - [03/Jun/2018:04:11:21 +0000] "GET /js/project.js HTTP/1.1" 304 - "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:11:21.187901+00:00 app[web.1]: 10.146.232.248 - - [03/Jun/2018:04:11:21 +0000] "GET /css/project.css HTTP/1.1" 304 - "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:11:21.188305+00:00 heroku[router]: at=info method=GET path="/js/project.js" host=ancient-scrubland-36003.herokuapp.com request_id=6c6abec4-91c3-45ee-9399-061fb0ec7c25 fwd="192.225.186.8" dyno=web.1 connect=0ms service=1ms status=304 bytes=127 protocol=https
+2018-06-03T04:11:31.156243+00:00 heroku[router]: at=info method=GET path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=0e88ea13-82fa-418c-a6ca-de0d5aa4d3c4 fwd="192.225.186.8" dyno=web.1 connect=1ms service=34ms status=200 bytes=1300 protocol=https
+2018-06-03T04:11:31.157325+00:00 app[web.1]: 10.146.232.248 - - [03/Jun/2018:04:11:31 +0000] "GET /login_project.php HTTP/1.1" 200 992 "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:11:31.321096+00:00 app[web.1]: 10.37.154.186 - - [03/Jun/2018:04:11:31 +0000] "GET /js/project.js HTTP/1.1" 304 - "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:11:31.322950+00:00 app[web.1]: 10.146.232.248 - - [03/Jun/2018:04:11:31 +0000] "GET /css/project.css HTTP/1.1" 304 - "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:11:31.321141+00:00 heroku[router]: at=info method=GET path="/js/project.js" host=ancient-scrubland-36003.herokuapp.com request_id=db72f92b-4e08-44ff-b8e2-9da7edc13495 fwd="192.225.186.8" dyno=web.1 connect=0ms service=1ms status=304 bytes=127 protocol=https
+2018-06-03T04:11:31.449646+00:00 app[web.1]: 10.146.232.248 - - [03/Jun/2018:04:11:31 +0000] "GET /img/task.png HTTP/1.1" 304 - "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:11:31.449324+00:00 heroku[router]: at=info method=GET path="/img/task.png" host=ancient-scrubland-36003.herokuapp.com request_id=58628949-1b8a-4caf-b419-e5ea8587b7ae fwd="192.225.186.8" dyno=web.1 connect=1ms service=2ms status=304 bytes=128 protocol=https
+2018-06-03T04:12:18.009157+00:00 heroku[router]: at=info method=POST path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=e9eee1ba-4c3d-434b-b933-615bd9569ef4 fwd="192.225.186.8" dyno=web.1 connect=1ms service=41ms status=302 bytes=391 protocol=https
+2018-06-03T04:12:18.135974+00:00 heroku[router]: at=info method=GET path= "/project/tasklist.php?user=admin" host=ancient-scrubland-36003.herokuapp.com request_id=2b81356b-546d-4263-9ced-1da9ae46fc41 fwd="192.225.186.8" dyno=web.1 connect=1ms service=20ms status=200 bytes=2325 protocol=https
+2018-06-03T04:12:18.327207+00:00 app[web.1]: 10.146.232.248 - - [03/Jun/2018:04:12:18 +0000] "GET /css/project.css HTTP/1.1" 304 - "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:12:18.327634+00:00 app[web.1]: 10.37.154.186 - - [03/Jun/2018:04:12:18 +0000] "GET /js/project.js HTTP/1.1" 304 - "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:12:18.327478+00:00 heroku[router]: at=info method=GET path="/js/project.js" host=ancient-scrubland-36003.herokuapp.com request_id=1379d8bd-3258-4bf0-a4d0-6a0f1807ccdb fwd="192.225.186.8" dyno=web.1 connect=0ms service=2ms status=304 bytes=127 protocol=https
+2018-06-03T04:12:22.740100+00:00 heroku[router]: at=info method=GET path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=256d98f0-8828-4931-bd9e-65c8c00d5134 fwd="192.225.186.8" dyno=web.1 connect=1ms service=13ms status=200 bytes=1300 protocol=https
+2018-06-03T04:12:22.740035+00:00 app[web.1]: 10.146.232.248 - - [03/Jun/2018:04:12:22 +0000] "GET /login_project.php HTTP/1.1" 200 992 "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:13:44.205485+00:00 heroku[router]: at=info method=POST path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=607ccd52-e32f-4cbf-adfe-13178b4a6e06 fwd="192.225.186.8" dyno=web.1 connect=3ms service=26ms status=200 bytes=1328 protocol=https
+2018-06-03T04:13:44.373121+00:00 heroku[router]: at=info method=GET path="/js/project.js" host=ancient-scrubland-36003.herokuapp.com request_id=8b281581-6dfe-471d-b978-a8ba458ed8b1 fwd="192.225.186.8" dyno=web.1 connect=2ms service=0ms status=304 bytes=127 protocol=https
+2018-06-03T04:13:44.369910+00:00 heroku[router]: at=info method=GET path="/css/project.css" host=ancient-scrubland-36003.herokuapp.com request_id=5fb3ee20-2885-4199-a93a-80f2009522b5 fwd="192.225.186.8" dyno=web.1 connect=0ms service=0ms status=304 bytes=128 protocol=https
+2018-06-03T04:13:44.502286+00:00 heroku[router]: at=info method=GET path="/img/task.png" host=ancient-scrubland-36003.herokuapp.com request_id=e15c9cbd-7924-402c-bb01-88d9fa75bcc1 fwd="192.225.186.8" dyno=web.1 connect=0ms service=1ms status=304 bytes=128 protocol=https
+2018-06-03T04:15:50.974007+00:00 heroku[web.1]: Restarting
+2018-06-03T04:15:50.974893+00:00 heroku[web.1]: State changed from up to starting
+2018-06-03T04:15:50.739553+00:00 app[api]: Deploy c6c714b0 by user all15019@byui.edu
+2018-06-03T04:15:50.000000+00:00 app[api]: Build succeeded
+2018-06-03T04:15:50.739553+00:00 app[api]: Release v300 created by user all15019@byui.edu
+2018-06-03T04:15:51.854179+00:00 app[web.1]: Going down, terminating child processes...
+2018-06-03T04:15:52.415485+00:00 heroku[web.1]: Starting process with command `vendor/bin/heroku-php-apache2 web/`
+2018-06-03T04:15:54.634429+00:00 app[web.1]: DOCUMENT_ROOT changed to 'web/'
+2018-06-03T04:15:54.652184+00:00 app[web.1]: Optimizing defaults for 1X dyno...
+2018-06-03T04:15:54.815658+00:00 app[web.1]: 4 processes at 128MB memory limit.
+2018-06-03T04:15:54.820346+00:00 app[web.1]: Starting php-fpm...
+2018-06-03T04:15:56.822091+00:00 app[web.1]: Starting httpd...
+2018-06-03T04:15:58.792928+00:00 app[web.1]: 10.45.100.228 - - [03/Jun/2018:04:15:58 +0000] "GET /project/tasklist.php?user=s HTTP/1.1" 200 2013 "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:15:58.583990+00:00 app[web.1]: 10.45.100.228 - - [03/Jun/2018:04:15:58 +0000] "POST /login_project.php HTTP/1.1" 302 225 "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:15:58.963134+00:00 heroku[router]: at=info method=GET path="/css/project.css" host=ancient-scrubland-36003.herokuapp.com request_id=ddbf3ab8-e82c-4134-800d-98c5d44140a8 fwd="192.225.186.8" dyno=web.1 connect=1ms service=1ms status=200 bytes=2060 protocol=https
+2018-06-03T04:15:58.965054+00:00 heroku[router]: at=info method=GET path="/js/project.js" host=ancient-scrubland-36003.herokuapp.com request_id=759f4db4-c569-444e-8071-5de3ee021904 fwd="192.225.186.8" dyno=web.1 connect=1ms service=1ms status=200 bytes=295 protocol=https
+2018-06-03T04:16:03.437298+00:00 heroku[router]: at=info method=GET path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=4a535cb1-4bba-48e8-9188-903f4a608f73 fwd="192.225.186.8" dyno=web.1 connect=1ms service=26ms status=200 bytes=1300 protocol=https
+2018-06-03T04:16:03.435925+00:00 app[web.1]: 10.45.100.228 - - [03/Jun/2018:04:16:03 +0000] "GET /login_project.php HTTP/1.1" 200 992 "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:16:07.341296+00:00 app[web.1]: 10.45.100.228 - - [03/Jun/2018:04:16:07 +0000] "POST /login_project.php HTTP/1.1" 302 225 "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:16:07.473347+00:00 app[web.1]: 10.45.100.228 - - [03/Jun/2018:04:16:07 +0000] "GET /project/tasklist.php?user=s HTTP/1.1" 200 2013 "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:16:07.342833+00:00 heroku[router]: at=info method=POST path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=c16180db-dd04-48e5-8fce-cd42c1b41ac4 fwd="192.225.186.8" dyno=web.1 connect=1ms service=28ms status=302 bytes=632 protocol=https
+2018-06-03T04:16:07.632453+00:00 heroku[router]: at=info method=GET path="/css/project.css" host=ancient-scrubland-36003.herokuapp.com request_id=cebc9116-8e8c-45a3-a740-b4ca02ebcc30 fwd="192.225.186.8" dyno=web.1 connect=1ms service=2ms status=304 bytes=128 protocol=https
+2018-06-03T04:16:08.982493+00:00 heroku[router]: at=info method=GET path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=29a82b24-6613-4478-9cd8-fb359ee23d62 fwd="192.225.186.8" dyno=web.1 connect=1ms service=14ms status=200 bytes=1300 protocol=https
+2018-06-03T04:16:08.981033+00:00 app[web.1]: 10.45.100.228 - - [03/Jun/2018:04:16:08 +0000] "GET /login_project.php HTTP/1.1" 200 992 "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:17:28.000000+00:00 app[api]: Build started by user all15019@byui.edu
+2018-06-03T04:17:34.627026+00:00 app[api]: Deploy 60c90e91 by user all15019@byui.edu
+2018-06-03T04:17:34.000000+00:00 app[api]: Build succeeded
+2018-06-03T04:17:36.273869+00:00 app[web.1]: Going down, terminating child processes...
+2018-06-03T04:17:36.369624+00:00 heroku[web.1]: Process exited with status 143
+2018-06-03T04:17:36.755032+00:00 heroku[web.1]: Starting process with command `vendor/bin/heroku-php-apache2 web/`
+2018-06-03T04:17:38.401255+00:00 app[web.1]: DOCUMENT_ROOT changed to 'web/'
+2018-06-03T04:17:38.416607+00:00 app[web.1]: Optimizing defaults for 1X dyno...
+2018-06-03T04:17:38.561685+00:00 app[web.1]: 4 processes at 128MB memory limit.
+2018-06-03T04:17:38.566170+00:00 app[web.1]: Starting php-fpm...
+2018-06-03T04:17:40.567713+00:00 app[web.1]: Starting httpd...
+2018-06-03T04:17:42.381948+00:00 heroku[router]: at=info method=GET path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=93f1bd3d-d19a-462e-8742-e5b8907b7751 fwd="192.225.186.8" dyno=web.1 connect=1ms service=21ms status=200 bytes=1300 protocol=https
+2018-06-03T04:17:42.382410+00:00 app[web.1]: 10.146.236.85 - - [03/Jun/2018:04:17:42 +0000] "GET /login_project.php HTTP/1.1" 200 992 "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:17:42.554429+00:00 app[web.1]: 10.146.236.85 - - [03/Jun/2018:04:17:42 +0000] "GET /js/project.js HTTP/1.1" 200 52 "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:17:42.553668+00:00 heroku[router]: at=info method=GET path="/js/project.js" host=ancient-scrubland-36003.herokuapp.com request_id=bd0f710f-1bbe-4bf9-afd6-808c6488cc3b fwd="192.225.186.8" dyno=web.1 connect=0ms service=1ms status=200 bytes=295 protocol=https
+2018-06-03T04:17:42.784771+00:00 heroku[router]: at=info method=GET path="/css/project.css" host=ancient-scrubland-36003.herokuapp.com request_id=ef49a923-d87b-46a8-b0e2-8b516c5222a4 fwd="192.225.186.8" dyno=web.1 connect=0ms service=1ms status=200 bytes=2060 protocol=https
+2018-06-03T04:17:42.785578+00:00 app[web.1]: 10.13.210.115 - - [03/Jun/2018:04:17:42 +0000] "GET /css/project.css HTTP/1.1" 200 1828 "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:17:42.914512+00:00 app[web.1]: 10.13.210.115 - - [03/Jun/2018:04:17:42 +0000] "GET /img/task.png HTTP/1.1" 200 3728 "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:17:42.913617+00:00 heroku[router]: at=info method=GET path="/img/task.png" host=ancient-scrubland-36003.herokuapp.com request_id=649773a4-4041-4570-9fb4-0899e495732f fwd="192.225.186.8" dyno=web.1 connect=0ms service=1ms status=200 bytes=3961 protocol=https
+2018-06-03T04:17:46.414309+00:00 app[web.1]: 10.13.210.115 - - [03/Jun/2018:04:17:46 +0000] "POST /login_project.php HTTP/1.1" 200 225 "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:20:21.000000+00:00 app[api]: Build started by user all15019@byui.edu
+2018-06-03T04:20:30.011669+00:00 heroku[web.1]: Restarting
+2018-06-03T04:20:30.016184+00:00 heroku[web.1]: State changed from up to starting
+2018-06-03T04:20:30.645106+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2018-06-03T04:20:30.656963+00:00 app[web.1]: Going down, terminating child processes...
+2018-06-03T04:20:30.749063+00:00 heroku[web.1]: Process exited with status 143
+2018-06-03T04:20:28.887195+00:00 app[api]: Deploy 9ea43112 by user all15019@byui.edu
+2018-06-03T04:20:29.000000+00:00 app[api]: Build succeeded
+2018-06-03T04:20:31.094555+00:00 heroku[web.1]: Starting process with command `vendor/bin/heroku-php-apache2 web/`
+2018-06-03T04:20:28.887195+00:00 app[api]: Release v302 created by user all15019@byui.edu
+2018-06-03T04:20:35.548489+00:00 app[web.1]: Starting httpd...
+2018-06-03T04:20:35.831851+00:00 heroku[web.1]: State changed from starting to up
+2018-06-03T04:20:48.301556+00:00 heroku[web.1]: Restarting
+2018-06-03T04:20:48.302247+00:00 heroku[web.1]: State changed from up to starting
+2018-06-03T04:20:49.092180+00:00 app[web.1]: Going down, terminating child processes...
+2018-06-03T04:20:49.549617+00:00 heroku[web.1]: Starting process with command `vendor/bin/heroku-php-apache2 web/`
+2018-06-03T04:20:47.485558+00:00 app[api]: Release v303 created by user all15019@byui.edu
+2018-06-03T04:20:47.000000+00:00 app[api]: Build succeeded
+2018-06-03T04:20:47.485558+00:00 app[api]: Deploy d0f1ae13 by user all15019@byui.edu
+2018-06-03T04:20:51.901066+00:00 app[web.1]: DOCUMENT_ROOT changed to 'web/'
+2018-06-03T04:20:51.920229+00:00 app[web.1]: Optimizing defaults for 1X dyno...
+2018-06-03T04:20:52.106934+00:00 app[web.1]: 4 processes at 128MB memory limit.
+2018-06-03T04:20:52.111874+00:00 app[web.1]: Starting php-fpm...
+2018-06-03T04:20:54.625958+00:00 heroku[web.1]: State changed from starting to up
+2018-06-03T04:20:56.214562+00:00 app[web.1]: [03-Jun-2018 04:20:56 UTC] PHP Fatal error:  Call to a member function prepare() on null in /app/web/login_project.php on line 25
+2018-06-03T04:20:56.217612+00:00 app[web.1]: 10.147.74.135 - - [03/Jun/2018:04:20:56 +0000] "POST /login_project.php HTTP/1.1" 500 - "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:20:59.645798+00:00 heroku[router]: at=info method=GET path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=a845ca1c-ce54-4aae-983b-e75094884bff fwd="192.225.186.8" dyno=web.1 connect=1ms service=25ms status=200 bytes=1300 protocol=https
+2018-06-03T04:20:59.986187+00:00 heroku[router]: at=info method=GET path="/js/project.js" host=ancient-scrubland-36003.herokuapp.com request_id=41218747-6184-4197-9509-559a48a1a7f4 fwd="192.225.186.8" dyno=web.1 connect=2ms service=1ms status=200 bytes=295 protocol=https
+2018-06-03T04:20:59.985781+00:00 app[web.1]: 10.9.144.211 - - [03/Jun/2018:04:20:59 +0000] "GET /js/project.js HTTP/1.1" 200 52 "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:21:00.084178+00:00 app[web.1]: 10.47.235.131 - - [03/Jun/2018:04:21:00 +0000] "GET /img/task.png HTTP/1.1" 200 3728 "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+2018-06-03T04:21:05.620597+00:00 heroku[router]: at=info method=POST path="/login_project.php" host=ancient-scrubland-36003.herokuapp.com request_id=fbedaa62-a001-4184-a3ef-54f671585e1a fwd="192.225.186.8" dyno=web.1 connect=0ms service=26ms status=500 bytes=306 protocol=https
+2018-06-03T04:21:05.616726+00:00 app[web.1]: [03-Jun-2018 04:21:05 UTC] PHP Fatal error:  Call to a member function prepare() on null in /app/web/login_project.php on line 25
+2018-06-03T04:21:05.620732+00:00 app[web.1]: 10.47.235.131 - - [03/Jun/2018:04:21:05 +0000] "POST /login_project.php HTTP/1.1" 500 - "https://ancient-scrubland-36003.herokuapp.com/login_project.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
