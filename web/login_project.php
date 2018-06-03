@@ -41,7 +41,7 @@ if(isset($_POST['login'])){
     print_r($users);
     if($pw2[0] == $pw1[0]){
       $_SESSION['user'] = $_POST['usrname'];
-      header("Location: https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php"."?user=".$_POST['usrname']);
+      // header("Location: https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php"."?user=".$_POST['usrname']);
       die();
     }
     else $error = "Invalid Username or Password";
