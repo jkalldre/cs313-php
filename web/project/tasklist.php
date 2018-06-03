@@ -4,9 +4,7 @@ $user = $_GET['user'];
 $userstr = 'tasklist.php?user=' . $user;
 $dbtest = true;
 
-$date = $_POST['due_date'];
-print_r($date);
-echo "Date: $date";
+
 
 if($dbtest) {
   $dbUrl = getenv('DATABASE_URL');
@@ -119,7 +117,7 @@ if ($_POST['newt'] == 'process'){
     ,'$title'
     ,(SELECT category_id FROM public.category WHERE title='$category'))";
     $db->exec($query);
-    header('location:tasklist.php?user='.$user);
+    // header('location:tasklist.php?user='.$user);
     // alert("inset success!");
   } catch (PDOException $e){
     $e->getMessage();
