@@ -1,18 +1,3 @@
-2018-06-03T02:35:51.648832+00:00 heroku[router]: at=info method=GET path="/css/project.css" host=ancient-scrubland-36003.herokuapp.com request_id=f0eb617b-c30f-4619-b8d6-b9205d36a9f3 fwd="192.225.186.8" dyno=web.1 connect=0ms service=1ms status=304 bytes=128 protocol=https
-2018-06-03T02:35:51.649964+00:00 app[web.1]: 10.143.214.218 - - [03/Jun/2018:02:35:51 +0000] "GET /css/project.css HTTP/1.1" 304 - "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=jkalldre" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
-2018-06-03T02:35:51.651055+00:00 app[web.1]: 10.102.227.92 - - [03/Jun/2018:02:35:51 +0000] "GET /js/project.js HTTP/1.1" 304 - "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=jkalldre" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
-2018-06-03T02:35:51.775056+00:00 app[web.1]: 10.143.214.218 - - [03/Jun/2018:02:35:51 +0000] "GET /img/threedot.jpg HTTP/1.1" 304 - "https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php?user=jkalldre" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
-2018-06-03T02:36:44.000000+00:00 app[api]: Build started by user all15019@byui.edu
-2018-06-03T02:36:51.910309+00:00 heroku[web.1]: Restarting
-2018-06-03T02:36:51.912258+00:00 heroku[web.1]: State changed from up to starting
-2018-06-03T02:36:51.684465+00:00 app[api]: Release v266 created by user all15019@byui.edu
-2018-06-03T02:36:51.684465+00:00 app[api]: Deploy aa247f22 by user all15019@byui.edu
-2018-06-03T02:36:52.880404+00:00 app[web.1]: Going down, terminating child processes...
-2018-06-03T02:36:52.865373+00:00 heroku[web.1]: Stopping all processes with SIGTERM
-2018-06-03T02:36:52.959963+00:00 heroku[web.1]: Process exited with status 143
-2018-06-03T02:36:53.084787+00:00 heroku[web.1]: Starting process with command `vendor/bin/heroku-php-apache2 web/`
-2018-06-03T02:36:55.180644+00:00 app[web.1]: DOCUMENT_ROOT changed to 'web/'
-2018-06-03T02:36:55.198875+00:00 app[web.1]: Optimizing defaults for 1X dyno...
 2018-06-03T02:36:55.337025+00:00 app[web.1]: 4 processes at 128MB memory limit.
 2018-06-03T02:36:55.341477+00:00 app[web.1]: Starting php-fpm...
 2018-06-03T02:36:57.343346+00:00 app[web.1]: Starting httpd...
@@ -98,3 +83,18 @@
 2018-06-03T02:48:26.353978+00:00 app[web.1]: [03-Jun-2018 02:48:26 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /app/web/project/tasklist.php on line 93
 2018-06-03T02:48:26.356111+00:00 app[web.1]: 10.141.244.173 - - [03/Jun/2018:02:48:26 +0000] "GET /project/tasklist.php?user=jkalldre HTTP/1.1" 500 - "https://ancient-scrubland-36003.herokuapp.com/project/edit.php?user=jkalldre&edit=22" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
 2018-06-03T02:48:26.353249+00:00 heroku[router]: at=info method=GET path= "/project/tasklist.php?user=jkalldre" host=ancient-scrubland-36003.herokuapp.com request_id=3eee0380-afbb-4637-9bb6-28452e925d6c fwd="192.225.186.8" dyno=web.1 connect=0ms service=9ms status=500 bytes=169 protocol=https
+2018-06-03T02:50:37.000000+00:00 app[api]: Build started by user all15019@byui.edu
+2018-06-03T02:50:44.893972+00:00 heroku[web.1]: Restarting
+2018-06-03T02:50:44.897000+00:00 heroku[web.1]: State changed from up to starting
+2018-06-03T02:50:44.648407+00:00 app[api]: Deploy 02de54f8 by user all15019@byui.edu
+2018-06-03T02:50:44.000000+00:00 app[api]: Build succeeded
+2018-06-03T02:50:44.648407+00:00 app[api]: Release v270 created by user all15019@byui.edu
+2018-06-03T02:50:46.090565+00:00 heroku[web.1]: Starting process with command `vendor/bin/heroku-php-apache2 web/`
+2018-06-03T02:50:46.250950+00:00 heroku[web.1]: Process exited with status 143
+2018-06-03T02:50:47.900104+00:00 app[web.1]: DOCUMENT_ROOT changed to 'web/'
+2018-06-03T02:50:47.918333+00:00 app[web.1]: Optimizing defaults for 1X dyno...
+2018-06-03T02:50:48.082314+00:00 app[web.1]: 4 processes at 128MB memory limit.
+2018-06-03T02:50:48.087639+00:00 app[web.1]: Starting php-fpm...
+2018-06-03T02:50:50.089661+00:00 app[web.1]: Starting httpd...
+2018-06-03T02:50:50.543379+00:00 heroku[web.1]: State changed from starting to up
+2018-06-03T02:51:06.802268+00:00 heroku[router]: at=info method=GET path= "/project/tasklist.php?user=jkalldre" host=ancient-scrubland-36003.herokuapp.com request_id=44631a47-f691-4503-a24a-51313e76f6f2 fwd="192.225.186.8" dyno=web.1 connect=1ms service=4ms status=500 bytes=169 protocol=https
