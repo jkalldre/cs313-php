@@ -103,7 +103,7 @@ if (isset($_POST['newt1'])){
              SET title=?,
                  category_id=?
              WHERE task_id=?";
-    $db->prepare($dbq3);
+    $update = $db->prepare($dbq3);
     alert($dbq3);
     // echo "Init Category: $category";
     for($i = 0; $i < count($categories);$i++){
@@ -112,7 +112,7 @@ if (isset($_POST['newt1'])){
       }
     }
     echo " Category: $category\nTitle: $title\nTask-ID: $taskid\n";
-    $db->exec([$title,$categories[$category]['title'],$taskid]);
+    $update->exec([$title,$categories[$category]['title'],$taskid]);
     // header('location:tasklist.php?user='.$user);
   } catch (PDOException $e){
     $e->getMessage();
