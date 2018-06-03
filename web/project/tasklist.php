@@ -101,18 +101,17 @@ if ($_POST['newt'] == 'process'){
   alert("testing insert");
   $title = $_POST['title'];
   $category = ucwords(strtolower($_POST['category']));
-  $date = $_POST['date'];
+  $date = strtotime($_POST['date']);
   echo "Date: $date";
   if (!existingCategory($category)){
     insertCategory($category);
     $categories = getCategories();
   }
   try {
-    $query = "INSERT INTO task (user_id,title,category_id,due_date) VALUES
+    $query = "INSERT INTO task (user_id,title,category_id) VALUES
     ((SELECT user_id FROM public.user WHERE username='$user')
     ,'$title'
-    ,(SELECT category_id FROM public.category WHERE title='$category'))
-    ,'$date'";
+    ,(SELECT category_id FROM public.category WHERE title='$category'))";
     $db->exec($query);
     header('location:tasklist.php?user='.$user);
     // alert("inset success!");
