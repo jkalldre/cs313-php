@@ -3,6 +3,11 @@ session_start();
 $user = $_GET['user'];
 $userstr = 'tasklist.php?user=' . $user;
 $dbtest = true;
+
+$date = $_POST['due_date'];
+print_r($date);
+echo "Date: $date";
+
 if($dbtest) {
   $dbUrl = getenv('DATABASE_URL');
   $dbopts = parse_url($dbUrl);
