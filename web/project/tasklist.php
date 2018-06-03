@@ -141,7 +141,7 @@ function alert($msg) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-  <div class="header">Task Manager <select><option value="title">Title</option> </select></div>
+  <div class="header">Task Manager </div>
   <div class="row">
     <div class= "column left">
       <h2>New Task</h2>
@@ -161,7 +161,7 @@ function alert($msg) {
 
           </div>
           <div class="column right">
-            <h2>Tasks</h2>
+            <h2>Tasks <select><option value="title">Title</option> </select></h2>
             <?php
             echo "
             <div class='task'><table><tr>
