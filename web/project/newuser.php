@@ -19,29 +19,30 @@ if($dbtest) {
     die();
   }
 }
-if(isset($_POST['login'])){
+if(isset($_POST['newuser'])){
   // if(!isset($db)) alert("DB IS NOT SET");
   // else alert("db is set");
   if($dbtest){
-    $dbq1 = "SELECT password FROM public.user WHERE username=?";
-    $dbq2 = "SELECT crypt(?,?)";
-
-    $pwquery1 = $db->prepare($dbq1);
-    $pwquery1->execute([$_POST['usrname']]);
-    $pw1 = $pwquery1->fetch();
-    // alert("Executed q1");
-
-    $pwquery2 = $db->prepare($dbq2);
-    $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
-    $pw2 = $pwquery2->fetch();
+    $pass1 = $_POST['usrpwd'];
+    $pass2 = $_POST['usrpwd1'];
+    if($pass1 == $pass2){
+    // $dbq1 = "SELECT password FROM public.user WHERE username=?";
+    // $dbq2 = "SELECT crypt(?,?)";
+    //
+    // $pwquery1 = $db->prepare($dbq1);
+    // $pwquery1->execute([$_POST['usrname']]);
+    // $pw1 = $pwquery1->fetch();
+    // // alert("Executed q1");
+    //
+    // $pwquery2 = $db->prepare($dbq2);
+    // $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
+    // $pw2 = $pwquery2->fetch();
     // alert("Executed q2");
 
-    if($pw2[0] == $pw1[0]){
       $_SESSION['user'] = $_POST['usrname'];
       header("Location: https://ancient-scrubland-36003.herokuapp.com/project/tasklist.php"."?user=".$_POST['usrname']);
-      die();
     }
-    else $error = "Invalid Username or Password";
+    else $error = "Passwords don't match!";
   }
 }
 
@@ -61,7 +62,7 @@ function alert($msg) {
   <div class="header">Task Manager - New User</div>
   <form method="post" action="">
     <div class="imgsignin">
-      <img src="img/task.png">
+      <img src="../img/newuser.png">
     </div>
 
     <div class="signin">
@@ -75,8 +76,9 @@ function alert($msg) {
       <lable for="usrpwd1"><b>Confirm Password:</b></lable>
       <input class="signin" type="password" placeholder="Confirm Password" name="usrpwd1" required>
 
-      <lable for="login"><span style="color:red"><?php echo $error?></span></lable>
-      <button class="loginbtn" type="submit" name="login">Login</button>
+      <lable for="newuser"><span style="color:red"><?php echo $error?></span></lable>
+      <button class="loginbtn" type="submit" name="newuser">Create User</button>
+      <a href="../login_project.php"><button class="loginbtn logout" type="push" name="login">Login</button></a>
     </div>
   </form>
 </body>
