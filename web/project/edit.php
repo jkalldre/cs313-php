@@ -93,6 +93,23 @@ $query_main = $db->prepare($dbq_main);
 $query_main->execute([$taskid]);
 $main = $query_main->fetchAll(PDO::FETCH_ASSOC);
 print_r($main);
+
+if (isset($_POST['newt1'])){
+  try{
+    $title = $_POST['title'];
+    $category = $_POST['category'];
+    $dbq3 = "UPDATE task
+            SET title=$title
+                category_id=(SELECT category_id FROM category WHERE title='$category')
+            WHERE task_id='$taskid'";
+    $db->exec($dbq3);
+    header('location:tasklist.php?user='.$user);
+  } catch (PDOException $e){
+    $e->getMessage();
+    echo $e;
+  }
+
+}
 ?>
 
 <html>
