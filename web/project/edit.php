@@ -109,8 +109,9 @@ if (isset($_POST['newt1'])){
         $category = $i+1;
       }
     }
+    echo $category;
     $db->exec([$title,$categories[$category]['title'],$taskid]);
-    header('location:tasklist.php?user='.$user);
+    // header('location:tasklist.php?user='.$user);
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
