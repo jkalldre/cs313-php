@@ -17,6 +17,4 @@
     echo 'Error!: ' . $ex->getMessage();
     die();
   }
-  echo "<p></p>"
-  return;
 ?>

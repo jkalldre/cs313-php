@@ -1,34 +1,35 @@
 <?php
 session_start();
 $dbtest = true;
-if($dbtest) {
-  $dbUrl = getenv('DATABASE_URL');
-  $dbopts = parse_url($dbUrl);
-  $dbHost = $dbopts["host"];
-  $dbPort = $dbopts["port"];
-  $dbUser = $dbopts["user"];
-  $dbPassword = $dbopts["pass"];
-  $dbName = ltrim($dbopts["path"],'/');
-  try
-  {
-    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-  }
-  catch (PDOException $ex)
-  {
-    echo 'Error!: ' . $ex->getMessage();
-    die();
-  }
-}
+
+require('php/dbconnect.php');
+//
+// $dbUrl = getenv('DATABASE_URL');
+// $dbopts = parse_url($dbUrl);
+// $dbHost = $dbopts["host"];
+// $dbPort = $dbopts["port"];
+// $dbUser = $dbopts["user"];
+// $dbPassword = $dbopts["pass"];
+// $dbName = ltrim($dbopts["path"],'/');
+// try
+// {
+//   $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+// }
+// catch (PDOException $ex)
+// {
+//   echo 'Error!: ' . $ex->getMessage();
+//   die();
+// }
 
 function existingUsername($user){
   global $db;
   $dbq = "SELECT username FROM public.user";
   $query = $db->prepare($dbq);
-  $query->execute(); 
+  $query->execute();
   $users = $query->fetchAll(PDO::FETCH_ASSOC);
   for($i = 0; $i < count($users); $i++){
     if ($user == $users[$i]['username'])
-      return true;
+    return true;
   }
   return false;
 }
