@@ -1,56 +1,33 @@
 <?php
 session_start();
 $user = $_GET['user'];
+// used for redirects
 $userstr = 'tasklist.php?user=' . $user;
-$dbtest = true;
-
+// connect to db
 require('../php/dbconnect.php');
-//
-// if($dbtest) {
-//   $dbUrl = getenv('DATABASE_URL');
-//   $dbopts = parse_url($dbUrl);
-//   $dbHost = $dbopts["host"];
-//   $dbPort = $dbopts["port"];
-//   $dbUser = $dbopts["user"];
-//   $dbPassword = $dbopts["pass"];
-//   $dbName = ltrim($dbopts["path"],'/');
-//
-//   try
-//   {
-//     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-//     // $db = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;");//, 'postgres', 'Sousheldon66');
-//   }
-//   catch (PDOException $ex)
-//   {
-//     echo 'Error!: ' . $ex->getMessage();
-//     die();
-//   }
-// }
-
+// remove task from db on click
 function killTask($index){
   global $db;
   global $user;
   try{
-    // $query = $db->prepare($dbq);
     $dbq = "DELETE FROM task WHERE task_id=$index";
     $db->exec($dbq);
     $str = "location:tasklist.php?user=".$user;
-    alert($str);
+    // redirect to avoid multiple executions
     header($str);
-    // $categories = $query->fetchAll(PDO::FETCH_ASSOC);
-    // return $categories;
+
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
   }
 }
 
+// if user selected a task, kill it
 if (isset($_GET['id'])){
   killTask($_GET['id']);
 }
 
-// if(!isset($db)) alert("DB IS NOT SET");
-// else alert("db is set");
+// grab all possible categories from db
 function getCategories() {
   global $db;
   $dbq = "SELECT title, category_id FROM public.category";
@@ -59,15 +36,18 @@ function getCategories() {
     $query->execute();
     $categories = $query->fetchAll(PDO::FETCH_ASSOC);
     return $categories;
+
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
   }
 }
 
+// check to see if given category exists in db
 function existingCategory($category){
+  // update list of categories
   $categories = getCategories();
-  // print_r($categories);
+  // look through list
   foreach($categories as $cat){
     if (strtolower($cat['title']) == strtolower($category))
     return true;
@@ -75,40 +55,33 @@ function existingCategory($category){
   return false;
 }
 
+// add category into db
 function insertCategory($category){
   global $db;
   try{
-    // $query = $db->prepare($dbq);
     $dbq = "INSERT INTO category (title) VALUES ('$category')";
     $db->exec($dbq);
-    // $categories = $query->fetchAll(PDO::FETCH_ASSOC);
-    // return $categories;
+
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
   }
 }
 
-if($dbtest){
-  $sort = (isset($_POST['sort'])) ? $_POST['sort'] : 'category_id';
-  $dbq1 = "SELECT task_id,title, category_id, due_date
-  FROM public.task
-  WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)
-  ORDER BY $sort";
-  // alert($dbq1);
-  $pwquery1 = $db->prepare($dbq1);
-  // alert($user);
-  $pwquery1->execute([$user]);
-  $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
-  $categories = getCategories();
-  // print_r($categories);
-}
+$sort = (isset($_POST['sort'])) ? $_POST['sort'] : 'category_id';
+$dbq1 = "SELECT task_id,title, category_id, due_date
+         FROM public.task
+         WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)
+         ORDER BY $sort";
+$pwquery1 = $db->prepare($dbq1);
+$pwquery1->execute([$user]);
+$pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
+$categories = getCategories();
+
 if ($_POST['newt'] == 'process'){
   $title = $_POST['title'];
   $category = ucwords(strtolower($_POST['category']));
   $date = $_POST['due_date'];
-  echo "date: $date";
-  // $date = NULL;
 
   if (!existingCategory($category)){
     insertCategory($category);
@@ -122,6 +95,7 @@ if ($_POST['newt'] == 'process'){
       ,(SELECT category_id FROM public.category WHERE title='$category')
       ,'$date')";
       $db->exec($query);
+
     } else {
       $query = "INSERT INTO task (user_id,title,category_id) VALUES
       ((SELECT user_id FROM public.user WHERE username='$user')
@@ -130,17 +104,11 @@ if ($_POST['newt'] == 'process'){
       $db->exec($query);
     }
     header('location:tasklist.php?user='.$user);
-    // alert("inset success!");
+
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
   }
-
-  $_POST['newt'] = 'done';
-}
-
-function alert($msg) {
-  echo "<script type='text/javascript'>alert('$msg');</script>";
 }
 
 ?>

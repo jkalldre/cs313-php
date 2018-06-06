@@ -1,39 +1,21 @@
 <?php
 session_start();
-$dbtest = true;
+// connect to db
 require('../php/dbconnect.php');
-
-// if($dbtest) {
-//   $dbUrl = getenv('DATABASE_URL');
-//   $dbopts = parse_url($dbUrl);
-//   $dbHost = $dbopts["host"];
-//   $dbPort = $dbopts["port"];
-//   $dbUser = $dbopts["user"];
-//   $dbPassword = $dbopts["pass"];
-//   $dbName = ltrim($dbopts["path"],'/');
-//   try
-//   {
-//     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-//   }
-//   catch (PDOException $ex)
-//   {
-//     echo 'Error!: ' . $ex->getMessage();
-//     die();
-//   }
-// }
+// insert new user into public.user
 if(isset($_POST['newuser'])){
-  // if(!isset($db)) alert("DB IS NOT SET");
-  // else alert("db is set");
-  if($dbtest){
     $user = $_POST['usrname'];
     $pass1 = $_POST['usrpwd'];
     $pass2 = $_POST['usrpwd1'];
+    // only insert if two passwords given are equal
     if($pass1 == $pass2){
       global $db;
       try{
+        // username is unique and will not insert duplicates
         $dbq = "INSERT INTO public.user (username, password)
         VALUES ('$user',crypt('$pass1', gen_salt('bf'))) ";
         $db->exec($dbq);
+        // redirect and avoid multiple executions
         header("Location: ../login_project.php?user=".$_POST['usrname']);
 
       } catch (PDOException $e){
@@ -42,14 +24,9 @@ if(isset($_POST['newuser'])){
       }
     }
     else $error = "Passwords don't match!";
-  }
 }
 
-function alert($msg) {
-  echo "<script type='text/javascript'>alert('$msg');</script>";
-}
 ?>
-<!-- <!doctype html> -->
 <html>
 <head>
   <title>Login</title>

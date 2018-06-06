@@ -1,26 +1,8 @@
 <?php
 session_start();
-$dbtest = true;
-
+// connect to db
 require('php/dbconnect.php');
-//
-// $dbUrl = getenv('DATABASE_URL');
-// $dbopts = parse_url($dbUrl);
-// $dbHost = $dbopts["host"];
-// $dbPort = $dbopts["port"];
-// $dbUser = $dbopts["user"];
-// $dbPassword = $dbopts["pass"];
-// $dbName = ltrim($dbopts["path"],'/');
-// try
-// {
-//   $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-// }
-// catch (PDOException $ex)
-// {
-//   echo 'Error!: ' . $ex->getMessage();
-//   die();
-// }
-
+// check if user exists in system
 function existingUsername($user){
   global $db;
   $dbq = "SELECT username FROM public.user";
@@ -35,36 +17,32 @@ function existingUsername($user){
 }
 
 if(isset($_POST['login'])){
-  // if(!isset($db)) alert("DB IS NOT SET");
-  // else alert("db is set");
-  if($dbtest){
-    $dbq1 = "SELECT password FROM public.user WHERE username=?";
-    $dbq2 = "SELECT crypt(?,?)";
-
-    $pwquery1 = $db->prepare($dbq1);
-    $pwquery1->execute([$_POST['usrname']]);
-    $pw1 = $pwquery1->fetch();
-
-    $pwquery2 = $db->prepare($dbq2);
-    $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
-    $pw2 = $pwquery2->fetch();
-
-
-    print_r($users);
-    if($pw2[0] == $pw1[0] && existingUsername($_POST['usrname'])){
-      $_SESSION['user'] = $_POST['usrname'];
-      header("Location: project/tasklist.php"."?user=".$_POST['usrname']);
-      die();
-    }
-    else $error = "Invalid Username or Password";
+  // queries
+  $dbq1 = "SELECT password FROM public.user WHERE username=?";
+  $dbq2 = "SELECT crypt(?,?)";
+  // fetch encrypted password
+  $pwquery1 = $db->prepare($dbq1);
+  $pwquery1->execute([$_POST['usrname']]);
+  $pw1 = $pwquery1->fetch();
+  // encrypt given password
+  $pwquery2 = $db->prepare($dbq2);
+  $pwquery2->execute([$_POST['usrpwd'],$pw1[0]]);
+  $pw2 = $pwquery2->fetch();
+  // compare hashes and check if valid user
+  if($pw2[0] == $pw1[0] && existingUsername($_POST['usrname'])){
+    $_SESSION['user'] = $_POST['usrname'];
+    // redirect to avoid multiple executions
+    header("Location: project/tasklist.php"."?user=".$_POST['usrname']);
+    die();
   }
+  else $error = "Invalid Username or Password";
 }
 
+// used for debugging
 function alert($msg) {
   echo "<script type='text/javascript'>alert('$msg');</script>";
 }
 ?>
-<!-- <!doctype html> -->
 <html>
 <head>
   <title>Login</title>

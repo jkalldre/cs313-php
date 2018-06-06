@@ -3,27 +3,7 @@ session_start();
 $user = $_GET['user'];
 $taskid = $_GET['edit'];
 $userstr = 'edit.php?user=' . $user .'&edit='.$taskid;
-$dbtest = true;
 require('../php/dbconnect.php');
-
-// if($dbtest) {
-//   $dbUrl = getenv('DATABASE_URL');
-//   $dbopts = parse_url($dbUrl);
-//   $dbHost = $dbopts["host"];
-//   $dbPort = $dbopts["port"];
-//   $dbUser = $dbopts["user"];
-//   $dbPassword = $dbopts["pass"];
-//   $dbName = ltrim($dbopts["path"],'/');
-//   try
-//   {
-//     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-//   }
-//   catch (PDOException $ex)
-//   {
-//     echo 'Error!: ' . $ex->getMessage();
-//     die();
-//   }
-// }
 
 function killTask($index){
   global $db;
@@ -34,6 +14,7 @@ function killTask($index){
     $str = "location:tasklist.php?user=".$user;
     alert($str);
     header($str);
+
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
@@ -78,17 +59,11 @@ function insertCategory($category){
   }
 }
 
-if($dbtest){
-  $dbq1 = "SELECT task_id,title, category_id FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
-  $pwquery1 = $db->prepare($dbq1);
-  $pwquery1->execute([$user]);
-  $pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
-  $categories = getCategories();
-}
-
-function alert($msg) {
-  echo "<script type='text/javascript'>alert('$msg');</script>";
-}
+$dbq1 = "SELECT task_id,title, category_id FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
+$pwquery1 = $db->prepare($dbq1);
+$pwquery1->execute([$user]);
+$pw1 = $pwquery1->fetchAll(PDO::FETCH_ASSOC);
+$categories = getCategories();
 
 $taskid = $_GET['edit'];
 $dbq_main = "SELECT title,category_id,due_date FROM public.task WHERE task_id=?";
@@ -102,25 +77,25 @@ if (isset($_POST['newt1'])){
     $category = $_POST['category1'];
     $date = $_POST['date1'];
     $dbq3 = "UPDATE task
-             SET title=?,
-                 category_id=?,
-                 due_date=?
-             WHERE task_id=?";
+    SET title=?,
+    category_id=?,
+    due_date=?
+    WHERE task_id=?";
     $update = $db->prepare($dbq3);
-    alert($dbq3);
+
     for($i = 0; $i < count($categories);$i++){
       if($category == $categories[$i]['title']){
         $category = $i+1;
       }
     }
-    echo " Category: $category\nTitle: $title\nTask-ID: $taskid\n";
+
     $update->execute([$title,$category,$date,$taskid]);
     header('location:tasklist.php?user='.$user);
+
   } catch (PDOException $e){
     $e->getMessage();
     echo $e;
   }
-
 }
 ?>
 
