@@ -22,15 +22,15 @@ if (isset($_POST['newt1'])){
   try{
     $title = $_POST['title1'];
     $category = $_POST['category1'];
-    for($i = 0; $i < count($categories);$i++){
-      if($category == $categories[$i]['title']){
-        $category = $i+1;
-      }
-    }
     // if given category doesn't exist, add it.
     if (!existingCategory($category)){
       insertCategory($category);
       $categories = getCategories();
+    }
+    for($i = 0; $i < count($categories);$i++){
+      if($category == $categories[$i]['title']){
+        $category = $i+1;
+      }
     }
 
     $date = $_POST['date1'];
