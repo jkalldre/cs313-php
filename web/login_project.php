@@ -21,7 +21,7 @@ if(isset($_POST['login'])){
   if($pw2[0] == $pw1[0] && existingUsername($_POST['usrname'])){
     $_SESSION['user'] = $_POST['usrname'];
     // redirect to avoid multiple executions
-    header("Location: project/tasklist.php"."?user=".$_POST['usrname']);
+    header("Location: project/tasklist.php");//."?user=".$_POST['usrname']);
     die();
   }
   else $error = "Invalid Username or Password";

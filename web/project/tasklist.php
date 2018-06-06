@@ -1,8 +1,8 @@
 <?php
 session_start();
-$user = $_GET['user'];
+$user = $_SESSION['user'];//$_GET['user'];
 // used for redirects
-$userstr = 'tasklist.php?user=' . $user;
+$userstr = 'tasklist.php';//?user=' . $user;
 // connect to db
 require('../php/dbconnect.php');
 require('../php/project.php');
@@ -50,7 +50,7 @@ if ($_POST['newt'] == 'process'){
       $db->exec($query);
     }
     // redirect to avoid multiple executions.
-    header('location:tasklist.php?user='.$user);
+    header('location:tasklist.php');//?user='.$user);
 
   } catch (PDOException $e){
     $e->getMessage();
