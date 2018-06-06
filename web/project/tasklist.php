@@ -108,7 +108,7 @@ if ($_POST['newt'] == 'process'){
               // populate task list.
               for($i = 0; $i < count($pw1); $i++){
                 $index = $userstr . "&id=" . $pw1[$i]['task_id'];
-                $edit = "edit.php?user=". $user . "&edit=". $pw1[$i]['task_id'];
+                $edit = "edit.php?edit=". $pw1[$i]['task_id'];
                 echo "
                 <a href=$index>
                 <div class='task'><table><tr>
