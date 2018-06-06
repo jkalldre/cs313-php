@@ -83,11 +83,13 @@ if ($_POST['newt'] == 'process'){
   $category = ucwords(strtolower($_POST['category']));
   $date = $_POST['due_date'];
 
+  // if given category doesn't exist, add it.
   if (!existingCategory($category)){
     insertCategory($category);
     $categories = getCategories();
   }
   try {
+    // use this query if date is given
     if (!empty($_POST['due_date'])) {
       $query = "INSERT INTO task (user_id,title,category_id,due_date) VALUES
       ((SELECT user_id FROM public.user WHERE username='$user')
@@ -95,7 +97,7 @@ if ($_POST['newt'] == 'process'){
       ,(SELECT category_id FROM public.category WHERE title='$category')
       ,'$date')";
       $db->exec($query);
-
+      // otherwise use this query that excludes date.
     } else {
       $query = "INSERT INTO task (user_id,title,category_id) VALUES
       ((SELECT user_id FROM public.user WHERE username='$user')
@@ -103,6 +105,7 @@ if ($_POST['newt'] == 'process'){
       ,(SELECT category_id FROM public.category WHERE title='$category'))";
       $db->exec($query);
     }
+    // redirect to avoid multiple executions.
     header('location:tasklist.php?user='.$user);
 
   } catch (PDOException $e){
@@ -158,7 +161,7 @@ if ($_POST['newt'] == 'process'){
               <td class='cl3'>Category</td>
               <td class='cl4'>Due Date</td>
               </tr></table></div>";
-
+              // populate task list.
               for($i = 0; $i < count($pw1); $i++){
                 $index = $userstr . "&id=" . $pw1[$i]['task_id'];
                 $edit = "edit.php?user=". $user . "&edit=". $pw1[$i]['task_id'];
