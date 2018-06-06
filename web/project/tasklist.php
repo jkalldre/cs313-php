@@ -5,67 +5,11 @@ $user = $_GET['user'];
 $userstr = 'tasklist.php?user=' . $user;
 // connect to db
 require('../php/dbconnect.php');
-// remove task from db on click
-function killTask($index){
-  global $db;
-  global $user;
-  try{
-    $dbq = "DELETE FROM task WHERE task_id=$index";
-    $db->exec($dbq);
-    $str = "location:tasklist.php?user=".$user;
-    // redirect to avoid multiple executions
-    header($str);
-
-  } catch (PDOException $e){
-    $e->getMessage();
-    echo $e;
-  }
-}
+require('../php/project.php');
 
 // if user selected a task, kill it
 if (isset($_GET['id'])){
   killTask($_GET['id']);
-}
-
-// grab all possible categories from db
-function getCategories() {
-  global $db;
-  $dbq = "SELECT title, category_id FROM public.category";
-  try{
-    $query = $db->prepare($dbq);
-    $query->execute();
-    $categories = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $categories;
-
-  } catch (PDOException $e){
-    $e->getMessage();
-    echo $e;
-  }
-}
-
-// check to see if given category exists in db
-function existingCategory($category){
-  // update list of categories
-  $categories = getCategories();
-  // look through list
-  foreach($categories as $cat){
-    if (strtolower($cat['title']) == strtolower($category))
-    return true;
-  }
-  return false;
-}
-
-// add category into db
-function insertCategory($category){
-  global $db;
-  try{
-    $dbq = "INSERT INTO category (title) VALUES ('$category')";
-    $db->exec($dbq);
-
-  } catch (PDOException $e){
-    $e->getMessage();
-    echo $e;
-  }
 }
 
 $sort = (isset($_POST['sort'])) ? $_POST['sort'] : 'category_id';
