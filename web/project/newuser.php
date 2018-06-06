@@ -2,6 +2,7 @@
 session_start();
 // connect to db
 require('../php/dbconnect.php');
+
 // insert new user into public.user
 if(isset($_POST['newuser'])){
     $user = $_POST['usrname'];

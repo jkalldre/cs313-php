@@ -2,19 +2,8 @@
 session_start();
 // connect to db
 require('php/dbconnect.php');
-// check if user exists in system
-function existingUsername($user){
-  global $db;
-  $dbq = "SELECT username FROM public.user";
-  $query = $db->prepare($dbq);
-  $query->execute();
-  $users = $query->fetchAll(PDO::FETCH_ASSOC);
-  for($i = 0; $i < count($users); $i++){
-    if ($user == $users[$i]['username'])
-    return true;
-  }
-  return false;
-}
+require('php/project.php');
+
 
 if(isset($_POST['login'])){
   // queries
@@ -38,10 +27,6 @@ if(isset($_POST['login'])){
   else $error = "Invalid Username or Password";
 }
 
-// used for debugging
-function alert($msg) {
-  echo "<script type='text/javascript'>alert('$msg');</script>";
-}
 ?>
 <html>
 <head>

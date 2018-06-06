@@ -1,4 +1,23 @@
 <?php
+// used for debugging
+function alert($msg) {
+  echo "<script type='text/javascript'>alert('$msg');</script>";
+}
+
+// check if user exists in system
+function existingUsername($user){
+  global $db;
+  $dbq = "SELECT username FROM public.user";
+  $query = $db->prepare($dbq);
+  $query->execute();
+  $users = $query->fetchAll(PDO::FETCH_ASSOC);
+  for($i = 0; $i < count($users); $i++){
+    if ($user == $users[$i]['username'])
+    return true;
+  }
+  return false;
+}
+
 // remove task from db on click
 function killTask($index){
   global $db;
