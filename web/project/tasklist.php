@@ -4,28 +4,28 @@ $user = $_GET['user'];
 $userstr = 'tasklist.php?user=' . $user;
 $dbtest = true;
 
-
-
-if($dbtest) {
-  $dbUrl = getenv('DATABASE_URL');
-  $dbopts = parse_url($dbUrl);
-  $dbHost = $dbopts["host"];
-  $dbPort = $dbopts["port"];
-  $dbUser = $dbopts["user"];
-  $dbPassword = $dbopts["pass"];
-  $dbName = ltrim($dbopts["path"],'/');
-
-  try
-  {
-    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-    // $db = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;");//, 'postgres', 'Sousheldon66');
-  }
-  catch (PDOException $ex)
-  {
-    echo 'Error!: ' . $ex->getMessage();
-    die();
-  }
-}
+require('../php/dbconnect.php');
+//
+// if($dbtest) {
+//   $dbUrl = getenv('DATABASE_URL');
+//   $dbopts = parse_url($dbUrl);
+//   $dbHost = $dbopts["host"];
+//   $dbPort = $dbopts["port"];
+//   $dbUser = $dbopts["user"];
+//   $dbPassword = $dbopts["pass"];
+//   $dbName = ltrim($dbopts["path"],'/');
+//
+//   try
+//   {
+//     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+//     // $db = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;");//, 'postgres', 'Sousheldon66');
+//   }
+//   catch (PDOException $ex)
+//   {
+//     echo 'Error!: ' . $ex->getMessage();
+//     die();
+//   }
+// }
 
 function killTask($index){
   global $db;
