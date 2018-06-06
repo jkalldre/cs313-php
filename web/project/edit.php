@@ -1,8 +1,9 @@
 <?php
 session_start();
-$user = $_GET['user'];
+// $user = $_GET['user'];
+$user = $_SESSION['user'];//$_GET['user'];
 $taskid = $_GET['edit'];
-$userstr = 'edit.php?user=' . $user .'&edit='.$taskid;
+$userstr = 'edit.php?edit='.$taskid;
 require('../php/dbconnect.php');
 require('../php/project.php');
 
@@ -50,7 +51,7 @@ if (isset($_POST['newt1'])){
              $update = $db->prepare($dbq3);
              $update->execute([$title,$category,$taskid]);
   }
-    header('location:tasklist.php?user='.$user);
+    header('location:tasklist.php');
 
   } catch (PDOException $e){
     $e->getMessage();
