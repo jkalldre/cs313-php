@@ -5,39 +5,39 @@ $taskid = $_GET['edit'];
 $userstr = 'edit.php?user=' . $user .'&edit='.$taskid;
 require('../php/dbconnect.php');
 
-// function getCategories() {
-//   global $db;
-//   $dbq = "SELECT title, category_id FROM public.category";
-//   try{
-//     $query = $db->prepare($dbq);
-//     $query->execute();
-//     $categories = $query->fetchAll(PDO::FETCH_ASSOC);
-//     return $categories;
-//   } catch (PDOException $e){
-//     $e->getMessage();
-//     echo $e;
-//   }
-// }
-//
-// function existingCategory($category){
-//   $categories = getCategories();
-//   foreach($categories as $cat){
-//     if (strtolower($cat['title']) == strtolower($category))
-//     return true;
-//   }
-//   return false;
-// }
-//
-// function insertCategory($category){
-//   global $db;
-//   try{
-//     $dbq = "INSERT INTO category (title) VALUES ('$category')";
-//     $db->exec($dbq);
-//   } catch (PDOException $e){
-//     $e->getMessage();
-//     echo $e;
-//   }
-// }
+function getCategories() {
+  global $db;
+  $dbq = "SELECT title, category_id FROM public.category";
+  try{
+    $query = $db->prepare($dbq);
+    $query->execute();
+    $categories = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $categories;
+  } catch (PDOException $e){
+    $e->getMessage();
+    echo $e;
+  }
+}
+
+function existingCategory($category){
+  $categories = getCategories();
+  foreach($categories as $cat){
+    if (strtolower($cat['title']) == strtolower($category))
+    return true;
+  }
+  return false;
+}
+
+function insertCategory($category){
+  global $db;
+  try{
+    $dbq = "INSERT INTO category (title) VALUES ('$category')";
+    $db->exec($dbq);
+  } catch (PDOException $e){
+    $e->getMessage();
+    echo $e;
+  }
+}
 
 $dbq1 = "SELECT task_id,title, category_id FROM public.task WHERE user_id=(SELECT user_id FROM public.user WHERE username=?)";
 $pwquery1 = $db->prepare($dbq1);
