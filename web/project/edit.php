@@ -27,6 +27,12 @@ if (isset($_POST['newt1'])){
         $category = $i+1;
       }
     }
+    // if given category doesn't exist, add it.
+    if (!existingCategory($category)){
+      insertCategory($category);
+      $categories = getCategories();
+    }
+
     $date = $_POST['date1'];
     if(!empty($_POST['date1'])){
     $dbq3 = "UPDATE task
