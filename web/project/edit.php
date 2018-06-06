@@ -22,21 +22,28 @@ if (isset($_POST['newt1'])){
   try{
     $title = $_POST['title1'];
     $category = $_POST['category1'];
-    $date = $_POST['date1'];
-    $dbq3 = "UPDATE task
-    SET title=?,
-    category_id=?,
-    due_date=?
-    WHERE task_id=?";
-    $update = $db->prepare($dbq3);
-
     for($i = 0; $i < count($categories);$i++){
       if($category == $categories[$i]['title']){
         $category = $i+1;
       }
     }
-
-    $update->execute([$title,$category,$date,$taskid]);
+    $date = $_POST['date1'];
+    if(!empty($_POST['date1'])){
+    $dbq3 = "UPDATE task
+             SET title=?,
+             category_id=?,
+             due_date=?
+             WHERE task_id=?";
+             $update = $db->prepare($dbq3);
+             $update->execute([$title,$category,$date,$taskid]);
+  } else{
+    $dbq3 = "UPDATE task
+             SET title=?,
+             category_id=?
+             WHERE task_id=?";
+             $update = $db->prepare($dbq3);
+             $update->execute([$title,$category,$taskid]);
+  }
     header('location:tasklist.php?user='.$user);
 
   } catch (PDOException $e){
